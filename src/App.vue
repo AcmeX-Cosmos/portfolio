@@ -422,6 +422,9 @@
 import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 import NavBar from './components/NavBar.vue'
 
+const BASE = import.meta.env.BASE_URL
+const assetPath = (path) => `${BASE}${path.replace(/^\//, '')}`
+
 const navItems = [
   { label: '首页', href: '#home' },
   { label: '经历', href: '#timeline' },
