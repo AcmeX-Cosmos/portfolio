@@ -2398,6 +2398,441 @@ figure {
   }
 }
 
+/* Portrait phones keep the desktop visual language in a tall, narrow composition. */
+@media (max-width: 760px) and (orientation: portrait) {
+  .site-shell::before {
+    background-size: 40px 40px;
+  }
+
+  .section-block {
+    padding: 72px 0 62px;
+  }
+
+  .section-heading {
+    gap: 10px;
+    margin-bottom: 34px;
+  }
+
+  .section-heading .eyebrow {
+    margin-bottom: 4px;
+  }
+
+  .hero {
+    min-height: 100svh;
+    padding-top: 88px;
+    padding-bottom: 58px;
+  }
+
+  .hero-stage {
+    gap: 16px;
+  }
+
+  .hero h1 {
+    font-size: clamp(52px, 17vw, 76px);
+    line-height: 0.82;
+  }
+
+  .hero h1 .hero-title-secondary {
+    margin-top: 12px;
+    font-size: clamp(49px, 15.5vw, 70px);
+  }
+
+  .hero-lead {
+    margin-top: 22px;
+  }
+
+  .hero-content {
+    font-size: 14px;
+    line-height: 1.72;
+  }
+
+  .hero-actions {
+    margin-top: 24px;
+  }
+
+  .hero-orbit {
+    position: relative;
+    display: block;
+    width: 100%;
+    min-height: 560px;
+    margin-top: 4px;
+  }
+
+  .hero-orbit::before,
+  .hero-orbit::after {
+    display: block;
+  }
+
+  .hero-orbit::before {
+    width: min(86vw, 340px);
+  }
+
+  .hero-orbit::after {
+    width: min(54vw, 214px);
+  }
+
+  .orbit-card:nth-of-type(n) {
+    position: absolute;
+    width: min(68vw, 244px);
+    min-height: 96px;
+    padding: 13px;
+    border-radius: 8px;
+  }
+
+  .orbit-card:nth-of-type(1) {
+    top: 2%;
+    left: 0;
+    rotate: -2deg;
+  }
+
+  .orbit-card:nth-of-type(2) {
+    top: 20%;
+    right: 0;
+    left: auto;
+    rotate: 1.6deg;
+  }
+
+  .orbit-card:nth-of-type(3) {
+    top: 39%;
+    left: 5%;
+    rotate: -1deg;
+  }
+
+  .orbit-card:nth-of-type(4) {
+    top: 58%;
+    right: 2%;
+    bottom: auto;
+    left: auto;
+    rotate: 1.8deg;
+  }
+
+  .orbit-card:nth-of-type(5) {
+    top: auto;
+    bottom: 1%;
+    left: 11%;
+    rotate: -1.4deg;
+  }
+
+  .orbit-index {
+    width: 27px;
+    height: 27px;
+    font-size: 10px;
+  }
+
+  .orbit-card strong {
+    font-size: 15px;
+  }
+
+  .orbit-card p {
+    margin-top: 6px;
+    font-size: 11px;
+  }
+
+  .profile-section {
+    padding-top: 76px;
+  }
+
+  .profile-layout {
+    gap: 24px;
+  }
+
+  .profile-card {
+    padding: 6px 0 26px;
+  }
+
+  .portrait-card {
+    transform: rotate(-0.7deg);
+  }
+
+  .portrait-card:hover {
+    transform: rotate(0.8deg) translateY(-6px) scale(1.012);
+  }
+
+  .profile-ring {
+    margin-left: 0;
+  }
+
+  .about-panel {
+    padding-top: 0;
+  }
+
+  .profile-copy h3 {
+    font-size: clamp(35px, 10vw, 44px);
+  }
+
+  .profile-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .fact-row:nth-child(n) {
+    min-width: 0;
+    min-height: 82px;
+    padding: 14px 10px 14px 0;
+  }
+
+  .fact-row:nth-child(even) {
+    padding-right: 0;
+    padding-left: 12px;
+  }
+
+  .fact-row span {
+    font-size: 10px;
+  }
+
+  .fact-row strong,
+  .fact-row a {
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  .metric-cloud {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 14px;
+  }
+
+  .metric-card {
+    min-height: 94px;
+    padding: 14px 0;
+  }
+
+  .metric-card strong {
+    font-size: 34px;
+  }
+
+  .metric-card span {
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  .timeline-section,
+  .projects-section,
+  .strengths-section {
+    min-height: 100svh;
+  }
+
+  .timeline-track {
+    gap: 14px;
+    padding-left: 22px;
+  }
+
+  .timeline-card,
+  .timeline-card.bottom {
+    padding: 18px;
+  }
+
+  .projects-section {
+    padding-bottom: 78px;
+  }
+
+  .project-system {
+    min-height: 2100px;
+    padding-top: 0;
+  }
+
+  .project-orbit-stage {
+    position: relative;
+    display: block;
+    min-height: 2100px;
+  }
+
+  .project-orbit-stage::before,
+  .project-orbit-stage::after {
+    display: block;
+    mask-image: none;
+  }
+
+  .project-orbit-stage::before {
+    inset: 1% 8%;
+    border-radius: 999px;
+    opacity: 0.58;
+  }
+
+  .project-orbit-stage::after {
+    inset: 7% 20%;
+    border-radius: 999px;
+  }
+
+  .project-orbit {
+    position: absolute;
+    inset: 0;
+    display: block;
+  }
+
+  .project-card,
+  .project-card-main,
+  .project-card-side {
+    position: absolute;
+    aspect-ratio: auto;
+    border-radius: 18px;
+  }
+
+  .project-card-main {
+    top: 0;
+    left: 50%;
+    width: 100%;
+    min-height: 374px;
+    translate: -50% 0;
+  }
+
+  .project-card-side,
+  .project-card-side.lifted,
+  .project-card-side.compact,
+  .project-card-side.wide,
+  .project-card-side.data,
+  .project-card-side.sim,
+  .project-card-side.ops {
+    position: absolute;
+    width: 88%;
+    min-height: 300px;
+    bottom: auto;
+  }
+
+  .project-card-side.lifted {
+    top: 18%;
+    right: auto;
+    left: 0;
+    rotate: -1.6deg;
+  }
+
+  .project-card-side.compact {
+    top: 31%;
+    right: 0;
+    left: auto;
+    rotate: 1.4deg;
+  }
+
+  .project-card-side.wide {
+    top: 44%;
+    right: auto;
+    left: 0;
+    rotate: -1deg;
+  }
+
+  .project-card-side.data {
+    top: 57%;
+    right: 0;
+    left: auto;
+    rotate: 1.7deg;
+  }
+
+  .project-card-side.sim {
+    top: 70%;
+    right: auto;
+    left: 0;
+    rotate: -1.4deg;
+  }
+
+  .project-card-side.ops {
+    top: 83%;
+    right: 0;
+    left: auto;
+    rotate: 1.2deg;
+  }
+
+  .project-body {
+    right: 16px;
+    bottom: 16px;
+    left: 16px;
+  }
+
+  .project-card-side .project-body h3 {
+    font-size: 20px;
+  }
+
+  .strength-grid {
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .strength-card:nth-child(n) {
+    grid-column: auto;
+    min-width: 0;
+    min-height: 250px;
+    padding: 16px;
+  }
+
+  .strength-card:nth-child(5) {
+    grid-column: 1 / -1;
+    width: calc(50% - 6px);
+    justify-self: center;
+  }
+
+  .strength-index {
+    width: 38px;
+    height: 38px;
+    margin-bottom: 14px;
+    font-size: 13px;
+  }
+
+  .strength-card h3 {
+    margin: 8px 0 10px;
+    font-size: 18px;
+  }
+
+  .strength-card p {
+    margin-bottom: 14px;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .mini-tags {
+    gap: 5px;
+  }
+
+  .mini-tags span {
+    padding: 5px 7px;
+    font-size: 10px;
+  }
+
+  .contact-layout {
+    gap: 34px;
+  }
+
+  .contact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .contact-card {
+    min-width: 0;
+    min-height: 118px;
+    padding: 16px 12px;
+  }
+
+  .contact-card strong {
+    overflow-wrap: anywhere;
+    font-size: 12px;
+  }
+}
+
+/* On portrait touch devices, show the complete desktop canvas scaled to the phone width. */
+@media (hover: none) and (pointer: coarse) and (orientation: portrait) {
+  .hero,
+  .timeline-section,
+  .projects-section,
+  .strengths-section,
+  .contact-section {
+    min-height: 900px;
+  }
+
+  .hero-stage {
+    min-height: 670px;
+  }
+
+  .timeline-track {
+    min-height: 480px;
+  }
+
+  .project-system {
+    min-height: 650px;
+  }
+
+  .strength-card {
+    min-height: 270px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
