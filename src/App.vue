@@ -25,7 +25,6 @@
         muted
         loop
         playsinline
-        poster="/media/resume-a-page-1.png"
       >
         <source src="/media/neural-grid.mp4" type="video/mp4" />
       </video>
@@ -84,7 +83,7 @@
           <div class="profile-card">
             <div class="profile-ring"></div>
             <figure class="portrait-card hover-react">
-              <img src="/media/resume-a-image-000.png" alt="陈泽欣头像"  />
+              <img src="/media/portrait.png" alt="头像"  />
             </figure>
             <div class="profile-contact-stack" aria-label="微信与地点">
               <article class="profile-contact-chip hover-react" style="--accent: #ffe27a;">

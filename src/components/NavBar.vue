@@ -84,7 +84,7 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 
 .nav-links {
   display: flex;
-  gap: 40px;
+  gap: 36px;
   align-items: center;
 }
 
