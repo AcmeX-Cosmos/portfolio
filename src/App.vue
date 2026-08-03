@@ -365,6 +365,15 @@
                 <span v-for="tag in strength.tags" :key="tag">{{ tag }}</span>
               </div>
             </article>
+            <svg
+              class="strength-star-lines"
+              viewBox="0 0 100 100"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path d="M50 3 L79 92 L3 36 L97 36 L21 92 Z" />
+            </svg>
           </div>
         </div>
       </div>
