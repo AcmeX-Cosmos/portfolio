@@ -1,0 +1,1106 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Detail</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #040706;
+        --panel: rgba(10, 18, 16, 0.86);
+        --line: rgba(216, 255, 63, 0.2);
+        --accent: #d8ff3f;
+        --text: #f4f8ee;
+        --muted: #aeb9ab;
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          "Microsoft YaHei", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        min-width: 320px;
+        margin: 0;
+        background:
+          radial-gradient(circle at 14% 10%, color-mix(in srgb, var(--accent), transparent 84%), transparent 28rem),
+          linear-gradient(135deg, #020403, #07120f 64%, #020403);
+        color: var(--text);
+      }
+
+      main {
+        display: grid;
+        gap: 26px;
+        width: min(calc(100% - 44px), 1280px);
+        margin: 0 auto;
+        padding: 34px 0 46px;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
+        gap: 24px;
+        align-items: stretch;
+      }
+
+      .hero-copy,
+      .media-panel,
+      .detail-card,
+      .metric {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+        box-shadow: 0 28px 90px rgba(0, 0, 0, 0.28);
+      }
+
+      .hero-copy {
+        padding: 34px;
+      }
+
+      .eyebrow {
+        margin: 0 0 18px;
+        color: var(--accent);
+        font-size: 12px;
+        font-weight: 950;
+        letter-spacing: 0.16em;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        max-width: 850px;
+        font-size: clamp(38px, 6vw, 82px);
+        line-height: 0.98;
+      }
+
+      .summary {
+        max-width: 860px;
+        margin-top: 22px;
+        color: #c8d2c2;
+        font-size: 17px;
+        line-height: 1.86;
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 24px;
+      }
+
+      .tags span {
+        padding: 7px 11px;
+        border: 1px solid color-mix(in srgb, var(--accent), transparent 68%);
+        border-radius: 999px;
+        background: color-mix(in srgb, var(--accent), transparent 91%);
+        color: #efffdb;
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .media-panel {
+        overflow: hidden;
+      }
+
+      .media-panel img {
+        width: 100%;
+        height: 100%;
+        min-height: 320px;
+        object-fit: cover;
+        filter: saturate(1.05) contrast(1.08);
+      }
+
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .metric {
+        padding: 20px;
+      }
+
+      .metric strong {
+        display: block;
+        color: var(--accent);
+        font-size: 30px;
+        line-height: 1;
+      }
+
+      .metric span {
+        display: block;
+        margin-top: 10px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .detail-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .detail-card {
+        display: grid;
+        gap: 14px;
+        min-height: 280px;
+        padding: 24px;
+      }
+
+      .detail-card h2 {
+        color: var(--accent);
+        font-size: 12px;
+        letter-spacing: 0.16em;
+      }
+
+      .detail-card h3 {
+        font-size: 23px;
+        line-height: 1.25;
+      }
+
+      .detail-card p,
+      .detail-card li {
+        color: #bdc8b7;
+        font-size: 14px;
+        line-height: 1.72;
+      }
+
+      ul {
+        display: grid;
+        gap: 8px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      li {
+        position: relative;
+        padding-left: 17px;
+      }
+
+      li::before {
+        position: absolute;
+        top: 0.68em;
+        left: 0;
+        width: 7px;
+        height: 7px;
+        content: "";
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 12px var(--accent);
+      }
+
+      @media (max-width: 880px) {
+        main {
+          width: min(calc(100% - 28px), 1280px);
+          padding-top: 20px;
+        }
+
+        .hero,
+        .metrics,
+        .detail-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-copy,
+        .detail-card,
+        .metric {
+          padding: 20px;
+        }
+      }
+
+      @media (max-width: 520px) {
+        main {
+          gap: 16px;
+          width: min(calc(100% - 20px), 1280px);
+          padding: 14px 0 28px;
+        }
+
+        .hero {
+          gap: 14px;
+        }
+
+        .hero-copy,
+        .detail-card,
+        .metric {
+          padding: 16px;
+        }
+
+        h1 {
+          font-size: clamp(30px, 10vw, 44px);
+          line-height: 1.05;
+        }
+
+        .summary {
+          margin-top: 16px;
+          font-size: 15px;
+          line-height: 1.7;
+        }
+
+        .media-panel img {
+          min-height: 210px;
+          max-height: 280px;
+        }
+
+        .metric strong {
+          font-size: 26px;
+        }
+
+        .detail-card {
+          min-height: auto;
+        }
+
+        .detail-card h3 {
+          font-size: 21px;
+        }
+      }
+    </style>
+    <style>
+      :root {
+        color-scheme: dark;
+        --paper: #080b0a;
+        --paper-soft: #101613;
+        --ink: #f0f4ef;
+        --ink-soft: #a9b5ae;
+        --rule: #29332e;
+      }
+
+      body {
+        min-width: 320px;
+        background: #020403;
+        color: var(--ink);
+      }
+
+      main.document {
+        display: block;
+        width: min(calc(100% - 48px), 1180px);
+        min-height: calc(100vh - 48px);
+        margin: 24px auto;
+        padding: 48px 62px 34px;
+        background:
+          linear-gradient(135deg, color-mix(in srgb, var(--accent), transparent 97%), transparent 32%),
+          var(--paper);
+        box-shadow:
+          0 24px 90px rgba(0, 0, 0, 0.72),
+          0 0 0 1px rgba(255, 255, 255, 0.035);
+      }
+
+      .document-masthead {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 24px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .document-mark {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--ink);
+        font-size: 11px;
+        font-weight: 900;
+        letter-spacing: 0.12em;
+      }
+
+      .document-mark::before {
+        width: 30px;
+        height: 3px;
+        content: "";
+        background: var(--accent);
+      }
+
+      .document-meta-top {
+        color: #718078;
+        font-family: "SFMono-Regular", Consolas, monospace;
+        font-size: 10px;
+        line-height: 1.5;
+        text-align: right;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.12fr) minmax(300px, 0.88fr);
+        gap: 34px;
+        align-items: center;
+        padding: 38px 0 42px;
+      }
+
+      .hero-copy,
+      .media-panel,
+      .detail-card,
+      .metric {
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+
+      .hero-copy {
+        padding: 0;
+      }
+
+      .eyebrow {
+        margin-bottom: 12px;
+        color: color-mix(in srgb, var(--accent), white 18%);
+        font-size: 10px;
+        letter-spacing: 0.14em;
+      }
+
+      h1 {
+        max-width: 720px;
+        color: var(--ink);
+        font-size: clamp(42px, 5.4vw, 72px);
+        line-height: 1.05;
+        letter-spacing: 0;
+      }
+
+      .summary {
+        max-width: 720px;
+        margin-top: 20px;
+        color: var(--ink-soft);
+        font-size: 16px;
+        line-height: 1.82;
+      }
+
+      .tags {
+        margin-top: 22px;
+      }
+
+      .tags span {
+        padding: 6px 10px;
+        border-color: color-mix(in srgb, var(--accent), transparent 54%);
+        background: color-mix(in srgb, var(--accent), transparent 89%);
+        color: #e8eee9;
+        font-size: 11px;
+      }
+
+      .media-panel {
+        overflow: hidden;
+        margin: 0;
+        border: 1px solid #35413a;
+        background: #111713;
+      }
+
+      .media-panel img {
+        width: 100%;
+        height: 300px;
+        min-height: 0;
+        object-fit: cover;
+        filter: saturate(0.96) contrast(1.04);
+      }
+
+      figcaption {
+        padding: 9px 12px;
+        border-top: 1px solid #35413a;
+        color: #87938c;
+        font-size: 10px;
+        line-height: 1.5;
+      }
+
+      .report-section {
+        padding: 34px 0 38px;
+        border-top: 1px solid var(--rule);
+      }
+
+      .section-title {
+        display: grid;
+        grid-template-columns: 42px minmax(0, 1fr);
+        gap: 12px;
+        align-items: baseline;
+        margin-bottom: 24px;
+      }
+
+      .section-title span {
+        color: color-mix(in srgb, var(--accent), white 16%);
+        font-family: "SFMono-Regular", Consolas, monospace;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .section-title h2 {
+        color: var(--ink);
+        font-size: 25px;
+        line-height: 1.25;
+      }
+
+      .report-intro {
+        display: grid;
+        grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.6fr);
+        gap: 44px;
+      }
+
+      .lead-paragraph {
+        color: #c2ccc5;
+        font-size: 15px;
+        line-height: 2;
+        text-align: justify;
+      }
+
+      .lead-paragraph::first-letter {
+        float: left;
+        margin: 5px 8px 0 0;
+        color: color-mix(in srgb, var(--accent), white 16%);
+        font-size: 38px;
+        font-weight: 900;
+        line-height: 0.8;
+      }
+
+      .info-table {
+        margin: 0;
+        border-top: 2px solid var(--ink);
+      }
+
+      .info-table div {
+        display: grid;
+        grid-template-columns: 82px minmax(0, 1fr);
+        gap: 12px;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .info-table dt,
+      .info-table dd {
+        margin: 0;
+        font-size: 11px;
+        line-height: 1.55;
+      }
+
+      .info-table dt {
+        color: #7e8b84;
+      }
+
+      .info-table dd {
+        color: var(--ink);
+        font-weight: 700;
+      }
+
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0;
+        margin-top: 28px;
+        border-top: 1px solid var(--rule);
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .metric {
+        padding: 18px 20px;
+        border-right: 1px solid var(--rule);
+      }
+
+      .metric:last-child {
+        border-right: 0;
+      }
+
+      .metric strong {
+        color: color-mix(in srgb, var(--accent), white 16%);
+        font-size: 28px;
+      }
+
+      .metric span {
+        margin-top: 7px;
+        color: #8b978f;
+        font-size: 11px;
+      }
+
+      .workflow {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin-bottom: 28px;
+        border: 1px solid var(--rule);
+      }
+
+      .workflow-step {
+        position: relative;
+        min-height: 112px;
+        padding: 18px 20px;
+        border-right: 1px solid var(--rule);
+      }
+
+      .workflow-step:last-child {
+        border-right: 0;
+      }
+
+      .workflow-step span {
+        display: block;
+        margin-bottom: 10px;
+        color: color-mix(in srgb, var(--accent), white 16%);
+        font-family: "SFMono-Regular", Consolas, monospace;
+        font-size: 10px;
+        font-weight: 900;
+      }
+
+      .workflow-step strong {
+        display: block;
+        color: var(--ink);
+        font-size: 15px;
+        line-height: 1.4;
+      }
+
+      .workflow-step p {
+        margin-top: 8px;
+        color: #8d9992;
+        font-size: 11px;
+        line-height: 1.6;
+      }
+
+      .detail-grid {
+        display: block;
+      }
+
+      .detail-card {
+        display: grid;
+        grid-template-columns: 180px minmax(0, 1fr);
+        gap: 28px;
+        min-height: 0;
+        padding: 24px 0;
+        border-top: 1px solid var(--rule);
+      }
+
+      .detail-card:last-child {
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .detail-card h2 {
+        color: color-mix(in srgb, var(--accent), white 16%);
+        font-size: 10px;
+        line-height: 1.5;
+        letter-spacing: 0.12em;
+      }
+
+      .detail-content {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(260px, 0.72fr);
+        gap: 28px;
+      }
+
+      .detail-card h3 {
+        margin-bottom: 10px;
+        color: var(--ink);
+        font-size: 20px;
+      }
+
+      .detail-card p,
+      .detail-card li {
+        color: #aab6ae;
+        font-size: 12px;
+        line-height: 1.75;
+      }
+
+      ul {
+        gap: 7px;
+      }
+
+      li::before {
+        top: 0.72em;
+        width: 5px;
+        height: 5px;
+        box-shadow: none;
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+      }
+
+      .gallery figure {
+        overflow: hidden;
+        margin: 0;
+        border: 1px solid #35413a;
+        background: #111713;
+      }
+
+      .gallery img {
+        width: 100%;
+        height: 260px;
+        object-fit: cover;
+      }
+
+      .report-columns {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 38px;
+      }
+
+      .report-column {
+        padding-top: 14px;
+        border-top: 2px solid var(--ink);
+      }
+
+      .report-column h3,
+      .next-panel h3 {
+        margin-bottom: 14px;
+        color: var(--ink);
+        font-size: 17px;
+      }
+
+      .report-column li,
+      .next-panel li {
+        color: #aab6ae;
+        font-size: 12px;
+        line-height: 1.75;
+      }
+
+      .next-panel {
+        margin-top: 28px;
+        padding: 22px 24px;
+        border-left: 4px solid var(--accent);
+        background: var(--paper-soft);
+      }
+
+      .next-panel ul {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+      }
+
+      .document-footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        padding-top: 18px;
+        border-top: 1px solid var(--rule);
+        color: #748179;
+        font-family: "SFMono-Regular", Consolas, monospace;
+        font-size: 9px;
+      }
+
+      @media (max-width: 880px) {
+        main.document {
+          width: 100%;
+          min-height: 100vh;
+          margin: 0;
+          padding: 28px 24px 24px;
+          box-shadow: none;
+        }
+
+        .hero,
+        .report-intro,
+        .detail-content {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          gap: 24px;
+          padding: 30px 0;
+        }
+
+        .media-panel img {
+          height: min(52vw, 340px);
+        }
+
+        .detail-card {
+          grid-template-columns: 120px minmax(0, 1fr);
+          gap: 20px;
+        }
+      }
+
+      @media (max-width: 580px) {
+        main.document {
+          padding: 22px 16px;
+        }
+
+        .document-masthead,
+        .document-footer {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .document-meta-top {
+          text-align: left;
+        }
+
+        h1 {
+          font-size: clamp(30px, 10vw, 44px);
+        }
+
+        .summary {
+          font-size: 14px;
+        }
+
+        .report-section {
+          padding: 28px 0;
+        }
+
+        .metrics,
+        .workflow,
+        .gallery,
+        .report-columns,
+        .next-panel ul {
+          grid-template-columns: 1fr;
+        }
+
+        .metric,
+        .workflow-step {
+          border-right: 0;
+          border-bottom: 1px solid var(--rule);
+        }
+
+        .metric:last-child,
+        .workflow-step:last-child {
+          border-bottom: 0;
+        }
+
+        .detail-card {
+          grid-template-columns: 1fr;
+          gap: 10px;
+        }
+
+        .gallery img {
+          height: 220px;
+        }
+      }
+
+      @media print {
+        body {
+          background: white;
+        }
+
+        main.document {
+          width: 210mm;
+          min-height: 297mm;
+          margin: 0;
+          padding: 18mm 16mm;
+          box-shadow: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="document">
+      <header class="document-masthead">
+        <div class="document-mark">ENGINEERING PROJECT REPORT</div>
+        <div class="document-meta-top">
+          <div id="doc-number">DOC / CZ-2026-01</div>
+          <div>PORTFOLIO EDITION · 2026</div>
+        </div>
+      </header>
+
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow" id="role"></p>
+          <h1 id="title"></h1>
+          <p class="summary" id="summary"></p>
+          <div class="tags" id="tags"></div>
+        </div>
+        <figure class="media-panel">
+          <img id="image" alt="" />
+          <figcaption id="hero-caption"></figcaption>
+        </figure>
+      </section>
+
+      <section class="report-section">
+        <div class="section-title"><span>01</span><h2>项目概述与目标</h2></div>
+        <div class="report-intro">
+          <p class="lead-paragraph" id="context"></p>
+          <dl class="info-table" id="project-info"></dl>
+        </div>
+        <div class="metrics" id="metrics"></div>
+      </section>
+
+      <section class="report-section">
+        <div class="section-title"><span>02</span><h2>技术路线与工程实现</h2></div>
+        <div class="workflow" id="workflow"></div>
+        <div class="detail-grid" id="details"></div>
+      </section>
+
+      <section class="report-section">
+        <div class="section-title"><span>03</span><h2>项目图像与工程证据</h2></div>
+        <div class="gallery" id="gallery"></div>
+      </section>
+
+      <section class="report-section">
+        <div class="section-title"><span>04</span><h2>个人职责、交付结果与复盘</h2></div>
+        <div class="report-columns">
+          <article class="report-column">
+            <h3>个人职责</h3>
+            <ul id="responsibilities"></ul>
+          </article>
+          <article class="report-column">
+            <h3>交付结果</h3>
+            <ul id="outcomes"></ul>
+          </article>
+        </div>
+        <aside class="next-panel">
+          <h3>后续迭代计划</h3>
+          <ul id="next-steps"></ul>
+        </aside>
+      </section>
+
+      <footer class="document-footer">
+        <span id="footer-title"></span>
+        <span>陈泽欣 · ROBOT VISION / ROS2 SYSTEM</span>
+      </footer>
+    </main>
+
+    <script>
+      const projects = {
+        "tracking-design-system": {
+          accent: "#d8ff3f",
+          title: "RoboMaster 机器人跟踪设计系统",
+          role: "核心算法负责人",
+          image: "/projects/robomaster-system.png",
+          summary:
+            "从图像输入、目标检测、位姿估计、滤波跟踪到云台控制，构建真实机器人上可运行、可调试、可复盘的视觉闭环。",
+          tags: ["ROS2", "TF2", "PnP", "Ceres BA", "EKF", "UE5"],
+          metrics: [
+            ["98%+", "装甲板数字识别测试准确率"],
+            ["<1ms", "轻量网络单次推理耗时"],
+            ["9D", "EKF 状态估计维度"],
+          ],
+          details: [
+            ["SYSTEM ARCHITECTURE", "分布式机器人视觉架构", "ROS2 与 DDS 组织去中心化节点网络，TF2 串联相机、云台、车体与世界系。", ["统一参数、生命周期和调试入口。", "按模块拆分检测、解算、跟踪和控制输出。"]],
+            ["VISION AND TRACKING", "检测、位姿与预测协同", "装甲板识别后进入 SolvePnP 与 Ceres BA，再由 EKF 融合视觉位姿和运动先验。", ["灯条几何筛选与数字识别组合。", "弹道补偿输出云台瞄准指令。"]],
+            ["FIELD DELIVERY", "面向赛场的交付闭环", "通过仿真、日志、可视化和 rosbag 回放减少现场排障时间。", ["UE5 复现目标运动。", "Foxglove 面板辅助定位问题。"]],
+          ],
+        },
+        "dice-pose": {
+          accent: "#67d9ff",
+          title: "骰子识别与姿态估计系统",
+          role: "识别与姿态",
+          image: "/projects/dice-pose.png",
+          summary: "融合 YOLOv10、PnP、BA 与 PoseNet，完成骰子检测、6DoF 姿态估计和 PyQt5 实时展示。",
+          tags: ["YOLOv10", "PnP", "BA", "PoseNet", "PyQt5"],
+          metrics: [["6DoF", "姿态估计输出"], ["3", "图像、视频、屏幕检测模式"], ["MAE", "训练指标可视化"]],
+          details: [
+            ["DETECTION", "多光照数据检测", "自建数据集并生成检测框与旋转向量标签。", ["YOLOv10 负责目标框与类别判断。", "保留困难视角样本用于回归。"]],
+            ["POSE", "几何与网络融合", "用几何解算提供强约束，用 PoseNet 补充复杂视角鲁棒性。", ["SolvePnP 输出初始位姿。", "Ceres BA 优化重投影误差。"]],
+            ["INTERFACE", "实时演示 GUI", "PyQt5 将输入源、结果叠加和训练指标集中到一个窗口。", ["支持实时帧检测。", "展示 Loss、MAE 和预测姿态。"]],
+          ],
+        },
+        "schedule-dashboard": {
+          accent: "#ff7a90",
+          title: "RoboMaster 全国赛备场调度系统",
+          role: "流程工具",
+          image: "/projects/schedule-dashboard.png",
+          summary: "面向 10 人团队与 30+ 队伍备场协调，开发 Vue3 调度系统，将排班耗时从 15 分钟压缩到 3 分钟。",
+          tags: ["Vue3", "Schedule", "Workflow", "Automation"],
+          metrics: [["80%", "排班效率提升"], ["30+", "协调队伍"], ["0", "关键场次冲突遗漏"]],
+          details: [
+            ["WORKFLOW", "现场流程拆解", "将人、场地、A/B 组轮换与提醒统一到一个工作台。", ["队伍状态同步更新。", "备场窗口与人员安排联动。"]],
+            ["RULE ENGINE", "规则校验", "把现场经验沉淀为前端校验条件，减少人工检查。", ["超员、空岗、冲突即时反馈。", "高校赛程节点预警。"]],
+            ["RESULT", "交付结果", "重复排班和信息追问显著减少，现场节奏更稳定。", ["排班从 15 分钟降到 3 分钟。", "关键冲突与遗漏清零。"]],
+          ],
+        },
+        "cyclegan-render": {
+          accent: "#ffe27a",
+          title: "CycleGAN 艺术风格迁移与 3D 纹理渲染",
+          role: "数据与渲染",
+          image: "/projects/artStyleGan-render.png",
+          summary: "自建风景与梵高数据集训练 CycleGAN，并通过 Blender Python 完成纹理映射和批量渲染。",
+          tags: ["CycleGAN", "U-Net", "PatchGAN", "Blender", "WandB"],
+          metrics: [["2700", "训练数据规模"], ["250", "训练轮次"], ["Batch", "脚本批量渲染"]],
+          details: [
+            ["TRAINING", "风格迁移训练", "构建 U-Net 生成器与 PatchGAN 判别器。", ["使用 LSGAN 损失。", "通过 WandB 监控训练过程。"]],
+            ["RENDER", "3D 纹理映射", "将二维风格结果映射到 3D 模型材质。", ["Blender Python 自动加载纹理。", "批量生成对比图。"]],
+            ["VALUE", "管线迁移价值", "强化数据生成、脚本自动化和视觉呈现能力。", ["可迁移到仿真资产制作。", "适合生成模型结果筛选。"]],
+          ],
+        },
+        "armor-dataset-lab": {
+          accent: "#82ffd2",
+          title: "装甲板数据集与标注实验室",
+          role: "数据链路",
+          image: "/projects/armor-dataset.png",
+          summary: "围绕装甲板识别需求，沉淀采集、增强、标注和失败样本回归流程。",
+          tags: ["Dataset", "Labeling", "Augment", "OpenCV"],
+          metrics: [["4", "场景样本组"], ["ID", "类别分布检查"], ["Regression", "失败样本回归"]],
+          details: [
+            ["CAPTURE", "多场景采集", "覆盖场地、曝光、远近距离和运动模糊。", ["整理静态与移动样本。", "保留推理失败帧。"]],
+            ["AUGMENT", "扰动增强", "将赛场反光、过曝、遮挡转成可控增强策略。", ["亮度、噪声、模糊组合。", "透视扰动模拟视角变化。"]],
+            ["REGRESSION", "持续回归", "误检、漏检和 ID 混淆样本进入回归集。", ["维护困难样本分组。", "对比模型版本准确率和耗时。"]],
+          ],
+        },
+        "ue5-sim-loop": {
+          accent: "#9f8cff",
+          title: "UE5 虚实仿真跟踪验证",
+          role: "仿真测试",
+          image: "/projects/ue5-simulation.png",
+          summary: "用可重复的仿真输入验证主系统的跟踪、预测和坐标变换策略。",
+          tags: ["UE5", "Simulation", "Trajectory", "Replay"],
+          metrics: [["Replay", "轨迹复现"], ["TF2", "坐标验证"], ["Latency", "延迟评估"]],
+          details: [
+            ["SCENE", "赛场运动复现", "生成不同速度和转向模式的目标轨迹。", ["模拟遮挡和短时丢失。", "构建可重复测试输入。"]],
+            ["BRIDGE", "ROS2 联调", "将仿真数据按真实系统接口组织。", ["对齐图像、位姿和时间戳。", "验证 TF2 坐标变换。"]],
+            ["EVALUATION", "策略评估", "比较轨迹误差、丢失恢复时间和控制延迟。", ["同一轨迹比较参数组。", "记录跟踪抖动。"]],
+          ],
+        },
+        "foxglove-observability": {
+          accent: "#ff9f45",
+          title: "ROS2 可视化与部署观测台",
+          role: "工程化",
+          image: "/projects/ros2-visualization.png",
+          summary: "整理关键话题、坐标、状态量和日志，让主系统排障从黑箱变成可回放流程。",
+          tags: ["Foxglove", "rosbag", "Docker", "Logs"],
+          metrics: [["Panel", "可视化面板"], ["rosbag", "问题回放"], ["Docker", "环境统一"]],
+          details: [
+            ["OBSERVE", "可视化观测", "Foxglove 展示检测框、位姿和预测轨迹。", ["关键话题集中展示。", "异常状态快速定位。"]],
+            ["DEPLOY", "部署收束", "依赖、参数和启动脚本统一管理。", ["Docker 管理训练与推理依赖。", "启动文件组织节点组合。"]],
+            ["DEBUG", "排障闭环", "日志、话题和回放数据绑定到问题处理流程。", ["保留关键帧与异常日志。", "参数调整后做回归验证。"]],
+          ],
+        },
+      };
+
+      const reports = {
+        "tracking-design-system": {
+          period: "2023.09 - 至今",
+          type: "真实机器人视觉闭环 / 长期迭代项目",
+          context: "项目面向 RoboMaster 高动态、强反光和通信链路复杂的真实赛场环境。目标不是完成单点算法演示，而是把检测、位姿、跟踪、预测和控制组织成稳定运行的完整系统，并让每一次异常都能通过日志、回放与可视化快速复现。系统持续经历真机联调和赛事压力测试，工程边界与算法精度同等重要。",
+          responsibilities: [
+            "负责装甲板检测、数字识别、PnP 位姿解算和 Ceres BA 优化链路。",
+            "设计 9 维 EKF 状态模型，融合位置、速度与旋转先验完成预测跟踪。",
+            "组织 ROS2 节点、TF2 坐标树、参数和启动流程，建立模块化调试入口。",
+            "通过 UE5、rosbag 与 Foxglove 构建仿真验证和现场问题复盘流程。",
+          ],
+          outcomes: [
+            "装甲板数字识别测试准确率达到 98%+，轻量模型推理耗时控制在 1ms 内。",
+            "形成从相机输入到云台瞄准指令输出的实时闭环，可在真机持续运行。",
+            "算法模块能够独立替换、回放验证和参数回归，降低现场联调成本。",
+            "积累高压环境下跨算法、通信与硬件边界定位问题的工程经验。",
+          ],
+          next: ["补充多兵种目标模型与统一状态接口。", "完善自动化回归数据集和轨迹误差报告。", "接入更完整的硬件在环延迟测量。"],
+          gallery: [
+            ["/projects/ros2-visualization.png", "图 1｜ROS2 关键话题、坐标与状态量的可视化观测界面。"],
+            ["/projects/ue5-simulation.png", "图 2｜UE5 虚实仿真环境中的目标轨迹与跟踪验证。"],
+          ],
+        },
+        "dice-pose": {
+          period: "2025.04 - 2025.06",
+          type: "视觉识别与 6DoF 位姿估计 / 独立项目",
+          context: "项目围绕规则物体在多光照、多视角条件下的检测与姿态估计展开。系统同时保留几何解算和神经网络两条路线：检测结果进入 SolvePnP 与 BA 获得可解释的位姿，PoseNet 则用于补充复杂视角下的鲁棒性，最终通过 PyQt5 将输入、预测与训练指标集中展示。",
+          responsibilities: ["独立采集并整理多光照骰子图像，生成检测框与旋转向量标签。", "完成 YOLOv10 检测、PnP 初值、Ceres BA 优化与 PoseNet 对比实验。", "设计图像、视频和屏幕三类输入模式及 PyQt5 实时展示界面。", "记录 Loss、MAE、姿态预测和困难样本，形成可复查实验过程。"],
+          outcomes: ["完成稳定的 6DoF 输出和多模型切换验证。", "将训练、推理、姿态解算与 GUI 演示整合为单一工作流。", "验证几何约束与学习模型互补的工程路径。", "沉淀小型视觉项目从数据到交付的完整模板。"],
+          next: ["增加遮挡与运动模糊数据。", "统一四元数损失和角度误差评价。", "尝试关键点网络与端到端姿态模型。"],
+          gallery: [["/projects/dice-pose.png", "图 1｜检测、姿态输出与 PyQt5 实时结果界面。"], ["/projects/Backup/dice-pose.png", "图 2｜早期版本界面与模型输出对照，用于迭代回归。"]],
+        },
+        "schedule-dashboard": {
+          period: "2025.08",
+          type: "赛事流程工具 / 现场交付项目",
+          context: "全国赛备场需要同时协调人员、队伍、场地和比赛时间节点。原流程依赖人工记录与口头同步，排班慢且容易遗漏。本项目将现场经验拆成状态、规则和提醒，通过 Vue3 工作台统一呈现队伍进度、人员轮换与冲突信息，使临时变化能够快速反映到执行安排。",
+          responsibilities: ["梳理 10 人团队、30+ 队伍和 A/B 组轮换约束。", "独立完成信息架构、状态面板、规则校验与提示逻辑。", "将超员、空岗、时间冲突和关键节点转成前端即时反馈。", "在赛事现场根据使用反馈快速调整展示密度与操作路径。"],
+          outcomes: ["单次排班耗时从约 15 分钟压缩到 3 分钟。", "整体调度效率提升约 80%，减少重复追问和手工核对。", "关键场次冲突和人员遗漏保持为零。", "流程知识从个人经验转成团队可复用的工具规则。"],
+          next: ["加入多终端状态同步。", "沉淀不同赛事规模的排班模板。", "增加操作日志和赛后统计报表。"],
+          gallery: [["/projects/schedule-dashboard.png", "图 1｜队伍、人员与时间节点集中展示的调度工作台。"], ["/projects/Backup/schedule-dashboard.png", "图 2｜早期排班界面，用于对比信息密度与操作路径优化。"]],
+        },
+        "cyclegan-render": {
+          period: "2025.09 - 2025.10",
+          type: "生成模型与 3D 渲染 / 独立项目",
+          context: "项目探索二维生成模型结果如何进入三维内容生产管线。通过自建风景与梵高风格数据集训练 CycleGAN，获得无配对风格迁移结果，再使用 Blender Python 自动完成纹理加载、材质映射、相机设置和批量渲染，使模型输出不止停留在训练样例。",
+          responsibilities: ["整理约 2700 张训练图像并完成清洗、裁剪与数据增强。", "实现 U-Net 生成器、PatchGAN 判别器和 LSGAN 训练配置。", "使用 WandB 跟踪损失、样例输出和模型版本。", "编写 Blender 脚本完成纹理映射、灯光布置与批量结果渲染。"],
+          outcomes: ["完成 250 轮训练并获得稳定的风格迁移结果。", "打通从二维生成结果到三维模型材质的自动化路径。", "支持批量生成统一视角的对比图，减少人工渲染操作。", "验证生成模型在仿真资产和视觉内容生产中的迁移价值。"],
+          next: ["增加内容一致性和色彩分布评价。", "尝试扩散模型生成可控纹理。", "接入更多 3D 资产与材质节点模板。"],
+          gallery: [["/projects/artStyleGan-render.png", "图 1｜CycleGAN 风格迁移结果与 Blender 纹理渲染成品。"], ["/projects/Backup/cyclegan-render.png", "图 2｜训练阶段生成样例与早期渲染效果对照。"]],
+        },
+        "armor-dataset-lab": {
+          period: "2024.03 - 2024.08",
+          type: "数据工程与模型回归 / 团队基础设施",
+          context: "稳定识别依赖持续更新的数据闭环，而不是一次性数据集。项目围绕装甲板目标建立采集、筛选、标注、增强、训练和失败样本回归流程，重点覆盖赛场反光、过曝、远距离、小目标、运动模糊与部分遮挡等真实困难条件。",
+          responsibilities: ["规划场地、曝光、距离和运动状态等采集维度。", "维护类别分布、标注质量和困难样本分组。", "实现亮度、噪声、模糊和透视扰动组合增强。", "将误检、漏检与 ID 混淆样本持续加入回归集合。"],
+          outcomes: ["形成四类场景样本组及统一的数据命名和检查规则。", "模型版本可在固定困难集上对比准确率与推理耗时。", "现场失败帧能够进入下一轮训练，缩短问题修复周期。", "数据资产与主视觉系统建立可持续迭代关系。"],
+          next: ["增加自动去重和异常标注检测。", "建立版本化数据清单与训练溯源。", "扩展多兵种和负样本场景覆盖。"],
+          gallery: [["/projects/armor-dataset.png", "图 1｜装甲板样本、标注与类别分布检查界面。"], ["/projects/robomaster-system.png", "图 2｜数据集在真实机器人检测与跟踪系统中的应用。"]],
+        },
+        "ue5-sim-loop": {
+          period: "2024.09 - 2025.01",
+          type: "虚实仿真与回归测试 / 系统验证",
+          context: "真实机器人测试成本高、输入难以重复，参数对比容易受环境变化影响。项目在 UE5 中构建可控目标与运动轨迹，通过与 ROS2 主系统一致的数据接口输出图像、位姿和时间戳，让跟踪、预测与坐标变换策略能够在相同输入下反复验证。",
+          responsibilities: ["搭建赛场环境、机器人目标和多种速度转向轨迹。", "模拟遮挡、短时丢失和观测噪声等异常状态。", "对齐仿真数据与 ROS2 图像、位姿和 TF2 接口。", "记录轨迹误差、恢复时间和端到端延迟。"],
+          outcomes: ["建立可重复的跟踪策略测试输入。", "能够在上真机前发现坐标、时间戳和预测参数问题。", "同一轨迹可用于多组参数的横向比较。", "降低现场占用和高风险策略验证成本。"],
+          next: ["补充硬件在环控制反馈。", "自动生成轨迹误差与延迟报告。", "扩展相机噪声和网络抖动模型。"],
+          gallery: [["/projects/ue5-simulation.png", "图 1｜UE5 场景、目标轨迹与相机观测输出。"], ["/projects/robomaster-system.png", "图 2｜仿真输入接入真实 ROS2 跟踪架构后的闭环验证。"]],
+        },
+        "foxglove-observability": {
+          period: "2025.02 - 2025.05",
+          type: "ROS2 可观测性与部署 / 工程工具",
+          context: "机器人系统异常通常跨越算法、通信与硬件边界，仅查看单个节点日志很难定位。项目将检测框、位姿、预测轨迹、TF2 坐标、节点状态和异常日志组织到统一观测面板，并配合 rosbag 回放与 Docker 环境管理形成可复现的排障闭环。",
+          responsibilities: ["筛选并组织检测、位姿、轨迹、状态和日志等关键话题。", "配置 Foxglove 面板与坐标可视化布局。", "整理 rosbag 录制、问题帧保留和回放检查步骤。", "统一 Docker 依赖、参数文件与节点启动脚本。"],
+          outcomes: ["主系统从黑箱调试转为关键状态可观察、异常可回放。", "算法与通信问题能够通过统一时间线快速区分。", "环境和启动方式趋于一致，降低跨设备部署差异。", "形成参数修改后的标准回归验证步骤。"],
+          next: ["加入异常事件自动标记。", "生成话题频率与延迟健康报告。", "完善远程设备部署和日志归档。"],
+          gallery: [["/projects/ros2-visualization.png", "图 1｜Foxglove 中的检测、坐标与预测状态组合面板。"], ["/projects/robomaster-system.png", "图 2｜观测工具服务的机器人视觉主系统与现场部署环境。"]],
+        },
+      };
+
+      const id = new URLSearchParams(location.search).get("id") || "tracking-design-system";
+      const project = projects[id] || projects["tracking-design-system"];
+      const report = reports[id] || reports["tracking-design-system"];
+      const projectIds = Object.keys(projects);
+      const documentIndex = String(projectIds.indexOf(id) + 1 || 1).padStart(2, "0");
+
+      document.documentElement.style.setProperty("--accent", project.accent);
+      document.title = `${project.title} | 工程项目报告`;
+      document.getElementById("doc-number").textContent = `DOC / CZ-2026-${documentIndex}`;
+      document.getElementById("role").textContent = project.role;
+      document.getElementById("title").textContent = project.title;
+      document.getElementById("summary").textContent = project.summary;
+      document.getElementById("image").src = project.image;
+      document.getElementById("image").alt = project.title;
+      document.getElementById("hero-caption").textContent = `项目主视觉｜${project.title}`;
+      document.getElementById("context").textContent = report.context;
+      document.getElementById("footer-title").textContent = `${project.title} · PROJECT REPORT`;
+      document.getElementById("tags").innerHTML = project.tags.map((tag) => `<span>${tag}</span>`).join("");
+      document.getElementById("project-info").innerHTML = [
+        ["项目周期", report.period],
+        ["个人角色", project.role],
+        ["项目类型", report.type],
+        ["核心技术", project.tags.join(" / ")],
+      ]
+        .map(([label, value]) => `<div><dt>${label}</dt><dd>${value}</dd></div>`)
+        .join("");
+      document.getElementById("metrics").innerHTML = project.metrics
+        .map(([value, label]) => `<article class="metric"><strong>${value}</strong><span>${label}</span></article>`)
+        .join("");
+      document.getElementById("workflow").innerHTML = project.details
+        .map(
+          ([, title, body], index) => `
+            <article class="workflow-step">
+              <span>STEP ${String(index + 1).padStart(2, "0")}</span>
+              <strong>${title}</strong>
+              <p>${body}</p>
+            </article>
+          `,
+        )
+        .join("");
+      document.getElementById("details").innerHTML = project.details
+        .map(
+          ([kicker, title, body, bullets], index) => `
+            <article class="detail-card">
+              <h2>02.${index + 1}<br />${kicker}</h2>
+              <div class="detail-content">
+                <div>
+                  <h3>${title}</h3>
+                  <p>${body}</p>
+                </div>
+                <ul>${bullets.map((bullet) => `<li>${bullet}</li>`).join("")}</ul>
+              </div>
+            </article>
+          `,
+        )
+        .join("");
+      document.getElementById("gallery").innerHTML = report.gallery
+        .map(
+          ([src, caption]) => `
+            <figure>
+              <img src="${src}" alt="${caption}" />
+              <figcaption>${caption}</figcaption>
+            </figure>
+          `,
+        )
+        .join("");
+
+      const renderList = (items) => items.map((item) => `<li>${item}</li>`).join("");
+      document.getElementById("responsibilities").innerHTML = renderList(report.responsibilities);
+      document.getElementById("outcomes").innerHTML = renderList(report.outcomes);
+      document.getElementById("next-steps").innerHTML = renderList(report.next);
+    </script>
+  </body>
+</html>
