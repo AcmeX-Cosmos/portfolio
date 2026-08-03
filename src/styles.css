@@ -663,9 +663,7 @@ figure {
   border-radius: 999px;
   background: linear-gradient(180deg, rgba(255, 255, 255, .18), transparent 42%), linear-gradient(135deg, #d8ff3f1f, #67d9ff14);
   box-shadow: 0 34px 110px #0000005c;
-  transform: rotate(-.7deg);
-  left: 25px; 
-  bottom: 25px;
+  transform: rotate(-0.7deg) translate(25px, -25px);
 }
 
 .portrait-card::after {
@@ -699,7 +697,7 @@ figure {
 
 .portrait-card:hover {
   --accent: var(--cyan);
-  transform: rotate(0.8deg) translateY(-10px) scale(1.012);
+  transform: rotate(0.8deg) translate(25px, -35px) scale(1.012);
 }
 
 .portrait-card:hover::after {

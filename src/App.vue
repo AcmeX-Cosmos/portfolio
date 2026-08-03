@@ -25,7 +25,7 @@
         muted
         loop
         playsinline
-        <!-- poster="/media/resume-a-page-1.png" -->
+        poster="/media/resume-a-page-1.png"
       >
         <source src="/media/neural-grid.mp4" type="video/mp4" />
       </video>
