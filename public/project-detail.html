@@ -845,12 +845,22 @@
     </main>
 
     <script>
+      // 自动检测 base path：开发环境为 "/"，GitHub Pages 为 "/portfolio/"
+      const basePath = (() => {
+        const path = window.location.pathname
+        return path.substring(0, path.lastIndexOf('/') + 1)
+      })()
+      const withBase = (p) => {
+        if (p.startsWith('http')) return p
+        return basePath + p.replace(/^\//, '')
+      }
+
       const projects = {
         "tracking-design-system": {
           accent: "#d8ff3f",
           title: "RoboMaster 机器人跟踪设计系统",
           role: "核心算法负责人",
-          image: "/projects/robomaster-system.png",
+          image: withBase("/projects/robomaster-system.png"),
           summary:
             "从图像输入、目标检测、位姿估计、滤波跟踪到云台控制，构建真实机器人上可运行、可调试、可复盘的视觉闭环。",
           tags: ["ROS2", "TF2", "PnP", "Ceres BA", "EKF", "UE5"],
@@ -869,7 +879,7 @@
           accent: "#67d9ff",
           title: "骰子识别与姿态估计系统",
           role: "识别与姿态",
-          image: "/projects/dice-pose.png",
+          image: withBase("/projects/dice-pose.png"),
           summary: "融合 YOLOv10、PnP、BA 与 PoseNet，完成骰子检测、6DoF 姿态估计和 PyQt5 实时展示。",
           tags: ["YOLOv10", "PnP", "BA", "PoseNet", "PyQt5"],
           metrics: [["6DoF", "姿态估计输出"], ["3", "图像、视频、屏幕检测模式"], ["MAE", "训练指标可视化"]],
@@ -883,7 +893,7 @@
           accent: "#ff7a90",
           title: "RoboMaster 全国赛备场调度系统",
           role: "流程工具",
-          image: "/projects/schedule-dashboard.png",
+          image: withBase("/projects/schedule-dashboard.png"),
           summary: "面向 10 人团队与 30+ 队伍备场协调，开发 Vue3 调度系统，将排班耗时从 15 分钟压缩到 3 分钟。",
           tags: ["Vue3", "Schedule", "Workflow", "Automation"],
           metrics: [["80%", "排班效率提升"], ["30+", "协调队伍"], ["0", "关键场次冲突遗漏"]],
@@ -897,7 +907,7 @@
           accent: "#ffe27a",
           title: "CycleGAN 艺术风格迁移与 3D 纹理渲染",
           role: "数据与渲染",
-          image: "/projects/artStyleGan-render.png",
+          image: withBase("/projects/artStyleGan-render.png"),
           summary: "自建风景与梵高数据集训练 CycleGAN，并通过 Blender Python 完成纹理映射和批量渲染。",
           tags: ["CycleGAN", "U-Net", "PatchGAN", "Blender", "WandB"],
           metrics: [["2700", "训练数据规模"], ["250", "训练轮次"], ["Batch", "脚本批量渲染"]],
@@ -911,7 +921,7 @@
           accent: "#82ffd2",
           title: "装甲板数据集与标注实验室",
           role: "数据链路",
-          image: "/projects/armor-dataset.png",
+          image: withBase("/projects/armor-dataset.png"),
           summary: "围绕装甲板识别需求，沉淀采集、增强、标注和失败样本回归流程。",
           tags: ["Dataset", "Labeling", "Augment", "OpenCV"],
           metrics: [["4", "场景样本组"], ["ID", "类别分布检查"], ["Regression", "失败样本回归"]],
@@ -925,7 +935,7 @@
           accent: "#9f8cff",
           title: "UE5 虚实仿真跟踪验证",
           role: "仿真测试",
-          image: "/projects/ue5-simulation.png",
+          image: withBase("/projects/ue5-simulation.png"),
           summary: "用可重复的仿真输入验证主系统的跟踪、预测和坐标变换策略。",
           tags: ["UE5", "Simulation", "Trajectory", "Replay"],
           metrics: [["Replay", "轨迹复现"], ["TF2", "坐标验证"], ["Latency", "延迟评估"]],
@@ -939,7 +949,7 @@
           accent: "#ff9f45",
           title: "ROS2 可视化与部署观测台",
           role: "工程化",
-          image: "/projects/ros2-visualization.png",
+          image: withBase("/projects/ros2-visualization.png"),
           summary: "整理关键话题、坐标、状态量和日志，让主系统排障从黑箱变成可回放流程。",
           tags: ["Foxglove", "rosbag", "Docker", "Logs"],
           metrics: [["Panel", "可视化面板"], ["rosbag", "问题回放"], ["Docker", "环境统一"]],
@@ -970,8 +980,8 @@
           ],
           next: ["补充多兵种目标模型与统一状态接口。", "完善自动化回归数据集和轨迹误差报告。", "接入更完整的硬件在环延迟测量。"],
           gallery: [
-            ["/projects/ros2-visualization.png", "图 1｜ROS2 关键话题、坐标与状态量的可视化观测界面。"],
-            ["/projects/ue5-simulation.png", "图 2｜UE5 虚实仿真环境中的目标轨迹与跟踪验证。"],
+            [withBase("/projects/ros2-visualization.png"), "图 1｜ROS2 关键话题、坐标与状态量的可视化观测界面。"],
+            [withBase("/projects/ue5-simulation.png"), "图 2｜UE5 虚实仿真环境中的目标轨迹与跟踪验证。"],
           ],
         },
         "dice-pose": {
@@ -981,7 +991,7 @@
           responsibilities: ["独立采集并整理多光照骰子图像，生成检测框与旋转向量标签。", "完成 YOLOv10 检测、PnP 初值、Ceres BA 优化与 PoseNet 对比实验。", "设计图像、视频和屏幕三类输入模式及 PyQt5 实时展示界面。", "记录 Loss、MAE、姿态预测和困难样本，形成可复查实验过程。"],
           outcomes: ["完成稳定的 6DoF 输出和多模型切换验证。", "将训练、推理、姿态解算与 GUI 演示整合为单一工作流。", "验证几何约束与学习模型互补的工程路径。", "沉淀小型视觉项目从数据到交付的完整模板。"],
           next: ["增加遮挡与运动模糊数据。", "统一四元数损失和角度误差评价。", "尝试关键点网络与端到端姿态模型。"],
-          gallery: [["/projects/dice-pose.png", "图 1｜检测、姿态输出与 PyQt5 实时结果界面。"], ["/projects/Backup/dice-pose.png", "图 2｜早期版本界面与模型输出对照，用于迭代回归。"]],
+          gallery: [[withBase("/projects/dice-pose.png"), "图 1｜检测、姿态输出与 PyQt5 实时结果界面。"], [withBase("/projects/Backup/dice-pose.png"), "图 2｜早期版本界面与模型输出对照，用于迭代回归。"]],
         },
         "schedule-dashboard": {
           period: "2025.08",
@@ -990,7 +1000,7 @@
           responsibilities: ["梳理 10 人团队、30+ 队伍和 A/B 组轮换约束。", "独立完成信息架构、状态面板、规则校验与提示逻辑。", "将超员、空岗、时间冲突和关键节点转成前端即时反馈。", "在赛事现场根据使用反馈快速调整展示密度与操作路径。"],
           outcomes: ["单次排班耗时从约 15 分钟压缩到 3 分钟。", "整体调度效率提升约 80%，减少重复追问和手工核对。", "关键场次冲突和人员遗漏保持为零。", "流程知识从个人经验转成团队可复用的工具规则。"],
           next: ["加入多终端状态同步。", "沉淀不同赛事规模的排班模板。", "增加操作日志和赛后统计报表。"],
-          gallery: [["/projects/schedule-dashboard.png", "图 1｜队伍、人员与时间节点集中展示的调度工作台。"], ["/projects/Backup/schedule-dashboard.png", "图 2｜早期排班界面，用于对比信息密度与操作路径优化。"]],
+          gallery: [[withBase("/projects/schedule-dashboard.png"), "图 1｜队伍、人员与时间节点集中展示的调度工作台。"], [withBase("/projects/Backup/schedule-dashboard.png"), "图 2｜早期排班界面，用于对比信息密度与操作路径优化。"]],
         },
         "cyclegan-render": {
           period: "2025.09 - 2025.10",
@@ -999,7 +1009,7 @@
           responsibilities: ["整理约 2700 张训练图像并完成清洗、裁剪与数据增强。", "实现 U-Net 生成器、PatchGAN 判别器和 LSGAN 训练配置。", "使用 WandB 跟踪损失、样例输出和模型版本。", "编写 Blender 脚本完成纹理映射、灯光布置与批量结果渲染。"],
           outcomes: ["完成 250 轮训练并获得稳定的风格迁移结果。", "打通从二维生成结果到三维模型材质的自动化路径。", "支持批量生成统一视角的对比图，减少人工渲染操作。", "验证生成模型在仿真资产和视觉内容生产中的迁移价值。"],
           next: ["增加内容一致性和色彩分布评价。", "尝试扩散模型生成可控纹理。", "接入更多 3D 资产与材质节点模板。"],
-          gallery: [["/projects/artStyleGan-render.png", "图 1｜CycleGAN 风格迁移结果与 Blender 纹理渲染成品。"], ["/projects/Backup/cyclegan-render.png", "图 2｜训练阶段生成样例与早期渲染效果对照。"]],
+          gallery: [[withBase("/projects/artStyleGan-render.png"), "图 1｜CycleGAN 风格迁移结果与 Blender 纹理渲染成品。"], [withBase("/projects/Backup/cyclegan-render.png"), "图 2｜训练阶段生成样例与早期渲染效果对照。"]],
         },
         "armor-dataset-lab": {
           period: "2024.03 - 2024.08",
@@ -1008,7 +1018,7 @@
           responsibilities: ["规划场地、曝光、距离和运动状态等采集维度。", "维护类别分布、标注质量和困难样本分组。", "实现亮度、噪声、模糊和透视扰动组合增强。", "将误检、漏检与 ID 混淆样本持续加入回归集合。"],
           outcomes: ["形成四类场景样本组及统一的数据命名和检查规则。", "模型版本可在固定困难集上对比准确率与推理耗时。", "现场失败帧能够进入下一轮训练，缩短问题修复周期。", "数据资产与主视觉系统建立可持续迭代关系。"],
           next: ["增加自动去重和异常标注检测。", "建立版本化数据清单与训练溯源。", "扩展多兵种和负样本场景覆盖。"],
-          gallery: [["/projects/armor-dataset.png", "图 1｜装甲板样本、标注与类别分布检查界面。"], ["/projects/robomaster-system.png", "图 2｜数据集在真实机器人检测与跟踪系统中的应用。"]],
+          gallery: [[withBase("/projects/armor-dataset.png"), "图 1｜装甲板样本、标注与类别分布检查界面。"], [withBase("/projects/robomaster-system.png"), "图 2｜数据集在真实机器人检测与跟踪系统中的应用。"]],
         },
         "ue5-sim-loop": {
           period: "2024.09 - 2025.01",
@@ -1017,7 +1027,7 @@
           responsibilities: ["搭建赛场环境、机器人目标和多种速度转向轨迹。", "模拟遮挡、短时丢失和观测噪声等异常状态。", "对齐仿真数据与 ROS2 图像、位姿和 TF2 接口。", "记录轨迹误差、恢复时间和端到端延迟。"],
           outcomes: ["建立可重复的跟踪策略测试输入。", "能够在上真机前发现坐标、时间戳和预测参数问题。", "同一轨迹可用于多组参数的横向比较。", "降低现场占用和高风险策略验证成本。"],
           next: ["补充硬件在环控制反馈。", "自动生成轨迹误差与延迟报告。", "扩展相机噪声和网络抖动模型。"],
-          gallery: [["/projects/ue5-simulation.png", "图 1｜UE5 场景、目标轨迹与相机观测输出。"], ["/projects/robomaster-system.png", "图 2｜仿真输入接入真实 ROS2 跟踪架构后的闭环验证。"]],
+          gallery: [[withBase("/projects/ue5-simulation.png"), "图 1｜UE5 场景、目标轨迹与相机观测输出。"], [withBase("/projects/robomaster-system.png"), "图 2｜仿真输入接入真实 ROS2 跟踪架构后的闭环验证。"]],
         },
         "foxglove-observability": {
           period: "2025.02 - 2025.05",
@@ -1026,20 +1036,20 @@
           responsibilities: ["筛选并组织检测、位姿、轨迹、状态和日志等关键话题。", "配置 Foxglove 面板与坐标可视化布局。", "整理 rosbag 录制、问题帧保留和回放检查步骤。", "统一 Docker 依赖、参数文件与节点启动脚本。"],
           outcomes: ["主系统从黑箱调试转为关键状态可观察、异常可回放。", "算法与通信问题能够通过统一时间线快速区分。", "环境和启动方式趋于一致，降低跨设备部署差异。", "形成参数修改后的标准回归验证步骤。"],
           next: ["加入异常事件自动标记。", "生成话题频率与延迟健康报告。", "完善远程设备部署和日志归档。"],
-          gallery: [["/projects/ros2-visualization.png", "图 1｜Foxglove 中的检测、坐标与预测状态组合面板。"], ["/projects/robomaster-system.png", "图 2｜观测工具服务的机器人视觉主系统与现场部署环境。"]],
+          gallery: [[withBase("/projects/ros2-visualization.png"), "图 1｜Foxglove 中的检测、坐标与预测状态组合面板。"], [withBase("/projects/robomaster-system.png"), "图 2｜观测工具服务的机器人视觉主系统与现场部署环境。"]],
         },
       };
 
       const mobileAssetQuery = window.matchMedia("(hover: none) and (pointer: coarse)");
       const mobileImageOverrides = {
-        "/projects/Backup/dice-pose.png": "/mobile/dice-pose-backup.webp",
-        "/projects/Backup/schedule-dashboard.png": "/mobile/schedule-dashboard-backup.webp",
-        "/projects/Backup/cyclegan-render.png": "/mobile/cyclegan-render-backup.webp",
+        [withBase("/projects/Backup/dice-pose.png")]: withBase("/mobile/dice-pose-backup.webp"),
+        [withBase("/projects/Backup/schedule-dashboard.png")]: withBase("/mobile/schedule-dashboard-backup.webp"),
+        [withBase("/projects/Backup/cyclegan-render.png")]: withBase("/mobile/cyclegan-render-backup.webp"),
       };
       const resolveImage = (src) => {
         if (!mobileAssetQuery.matches) return src;
         if (mobileImageOverrides[src]) return mobileImageOverrides[src];
-        return src.replace("/projects/", "/mobile/").replace(/\.[^.]+$/, ".webp");
+        return src.replace(basePath + "projects/", basePath + "mobile/").replace(/\.[^.]+$/, ".webp");
       };
 
       const id = new URLSearchParams(location.search).get("id") || "tracking-design-system";

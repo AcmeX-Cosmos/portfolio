@@ -27,11 +27,11 @@
         playsinline
       >
         <source
-          src="/media/neural-grid-mobile.mp4"
+          :src="`${BASE}media/neural-grid-mobile.mp4`"
           type="video/mp4"
           media="(hover: none) and (pointer: coarse)"
         />
-        <source src="/media/neural-grid.mp4" type="video/mp4" />
+        <source :src="`${BASE}media/neural-grid.mp4`" type="video/mp4" />
       </video>
       <div class="page-frame hero-stage">
         <div class="hero-copy">
@@ -90,11 +90,11 @@
             <figure class="portrait-card hover-react">
               <picture>
                 <source
-                  srcset="/mobile/portrait.webp"
+                  :srcset="`${BASE}mobile/portrait.webp`"
                   type="image/webp"
                   media="(hover: none) and (pointer: coarse)"
                 />
-                <img src="/media/portrait.png" alt="头像" decoding="async" />
+                <img :src="`${BASE}media/portrait.png`" alt="头像" decoding="async" />
               </picture>
             </figure>
             <div class="profile-contact-stack" aria-label="微信与地点">
@@ -307,7 +307,7 @@
             <iframe
               ref="projectDetailFrame"
               class="project-detail-frame"
-              :src="selectedProject ? `/project-detail.html?id=${selectedProject.id}` : 'about:blank'"
+              :src="selectedProject ? `${BASE}project-detail.html?id=${selectedProject.id}` : 'about:blank'"
               :title="selectedProject ? `${selectedProject.title} 详情页` : '项目详情页'"
             ></iframe>
           </section>
@@ -493,7 +493,7 @@ const projects = [
     title: 'RoboMaster 机器人跟踪设计系统',
     role: '核心算法负责人',
     period: '2023.09 - 至今',
-    image: '/projects/robomaster-system.png',
+    image: `${BASE}projects/robomaster-system.png`,
     size: 'main',
     style: '--accent: #d8ff3f;',
     tags: ['ROS2', 'TF2', 'PnP', 'Ceres BA', 'EKF', 'UE5'],
@@ -535,7 +535,7 @@ const projects = [
     title: '骰子识别与姿态估计系统',
     role: '识别与姿态',
     period: '2025.04 - 2025.06',
-    image: '/projects/dice-pose.png',
+    image: `${BASE}projects/dice-pose.png`,
     size: 'lifted',
     style: '--accent: #67d9ff;',
     tags: ['YOLOv10', 'PnP', 'BA', 'PoseNet', 'PyQt5'],
@@ -568,7 +568,7 @@ const projects = [
     title: 'RoboMaster 全国赛备场调度系统',
     role: '流程工具',
     period: '2025.08',
-    image: '/projects/schedule-dashboard.png',
+    image: `${BASE}projects/schedule-dashboard.png`,
     size: 'compact',
     style: '--accent: #ff7a90;',
     tags: ['Vue3', 'Schedule', 'Workflow', 'Automation'],
@@ -601,7 +601,7 @@ const projects = [
     title: 'CycleGAN 艺术风格迁移与 3D 纹理渲染',
     role: '数据与渲染',
     period: '2025.09 - 2025.10',
-    image: '/projects/artStyleGan-render.png',
+    image: `${BASE}projects/artStyleGan-render.png`,
     size: 'wide',
     style: '--accent: #ffe27a;',
     tags: ['CycleGAN', 'U-Net', 'PatchGAN', 'Blender', 'WandB'],
@@ -634,7 +634,7 @@ const projects = [
     title: '装甲板数据集与标注实验室',
     role: '数据链路',
     period: '2024.03 - 2024.08',
-    image: '/projects/armor-dataset.png',
+    image: `${BASE}projects/armor-dataset.png`,
     size: 'data',
     style: '--accent: #82ffd2;',
     tags: ['Dataset', 'Labeling', 'Augment', 'OpenCV'],
@@ -667,7 +667,7 @@ const projects = [
     title: 'UE5 虚实仿真跟踪验证',
     role: '仿真测试',
     period: '2024.09 - 2025.01',
-    image: '/projects/ue5-simulation.png',
+    image: `${BASE}projects/ue5-simulation.png`,
     size: 'sim',
     style: '--accent: #9f8cff;',
     tags: ['UE5', 'Simulation', 'Trajectory', 'Replay'],
@@ -700,7 +700,7 @@ const projects = [
     title: 'ROS2 可视化与部署观测台',
     role: '工程化',
     period: '2025.02 - 2025.05',
-    image: '/projects/ros2-visualization.png',
+    image: `${BASE}projects/ros2-visualization.png`,
     size: 'ops',
     style: '--accent: #ff9f45;',
     tags: ['Foxglove', 'rosbag', 'Docker', 'Logs'],
@@ -733,7 +733,7 @@ const projects = [
 const featuredProject = computed(() => projects[0])
 const sideProjects = computed(() => projects.slice(1))
 const mobileProjectImage = (image) => image
-  .replace('/projects/', '/mobile/')
+  .replace(`${BASE}projects/`, `${BASE}mobile/`)
   .replace(/\.[^.]+$/, '.webp')
 const selectedProject = ref(projects[0])
 const detailActive = ref(false)
