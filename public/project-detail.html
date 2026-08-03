@@ -1030,6 +1030,18 @@
         },
       };
 
+      const mobileAssetQuery = window.matchMedia("(hover: none) and (pointer: coarse)");
+      const mobileImageOverrides = {
+        "/projects/Backup/dice-pose.png": "/mobile/dice-pose-backup.webp",
+        "/projects/Backup/schedule-dashboard.png": "/mobile/schedule-dashboard-backup.webp",
+        "/projects/Backup/cyclegan-render.png": "/mobile/cyclegan-render-backup.webp",
+      };
+      const resolveImage = (src) => {
+        if (!mobileAssetQuery.matches) return src;
+        if (mobileImageOverrides[src]) return mobileImageOverrides[src];
+        return src.replace("/projects/", "/mobile/").replace(/\.[^.]+$/, ".webp");
+      };
+
       const id = new URLSearchParams(location.search).get("id") || "tracking-design-system";
       const project = projects[id] || projects["tracking-design-system"];
       const report = reports[id] || reports["tracking-design-system"];
@@ -1042,7 +1054,7 @@
       document.getElementById("role").textContent = project.role;
       document.getElementById("title").textContent = project.title;
       document.getElementById("summary").textContent = project.summary;
-      document.getElementById("image").src = project.image;
+      document.getElementById("image").src = resolveImage(project.image);
       document.getElementById("image").alt = project.title;
       document.getElementById("hero-caption").textContent = `项目主视觉｜${project.title}`;
       document.getElementById("context").textContent = report.context;
@@ -1090,7 +1102,7 @@
         .map(
           ([src, caption]) => `
             <figure>
-              <img src="${src}" alt="${caption}" />
+              <img src="${resolveImage(src)}" alt="${caption}" loading="lazy" decoding="async" />
               <figcaption>${caption}</figcaption>
             </figure>
           `,

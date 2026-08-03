@@ -26,6 +26,11 @@
         loop
         playsinline
       >
+        <source
+          src="/media/neural-grid-mobile.mp4"
+          type="video/mp4"
+          media="(hover: none) and (pointer: coarse)"
+        />
         <source src="/media/neural-grid.mp4" type="video/mp4" />
       </video>
       <div class="page-frame hero-stage">
@@ -83,7 +88,14 @@
           <div class="profile-card">
             <div class="profile-ring"></div>
             <figure class="portrait-card hover-react">
-              <img src="/media/portrait.png" alt="头像"  />
+              <picture>
+                <source
+                  srcset="/mobile/portrait.webp"
+                  type="image/webp"
+                  media="(hover: none) and (pointer: coarse)"
+                />
+                <img src="/media/portrait.png" alt="头像" decoding="async" />
+              </picture>
             </figure>
             <div class="profile-contact-stack" aria-label="微信与地点">
               <article class="profile-contact-chip hover-react" style="--accent: #ffe27a;">
@@ -100,7 +112,7 @@
           <div class="about-panel">
             <div class="profile-copy">
               <p class="eyebrow">ABOUT ME</p>
-              <h3>Hi, I am Chen Zexin</h3>
+              <h3>Hi, I am 陈泽欣</h3>
               <p>
                 我是机器人视觉算法与 ROS2 系统开发方向的工程型选手，长期投入 RoboMaster
                 真实机器人系统，关注目标检测、6DoF 位姿估计、多传感器融合跟踪和弹道解算。
@@ -194,7 +206,19 @@
               @click="openProject(featuredProject)"
             >
               <div class="project-image">
-                <img :src="featuredProject.image" :alt="featuredProject.title" />
+                <picture>
+                  <source
+                    :srcset="mobileProjectImage(featuredProject.image)"
+                    type="image/webp"
+                    media="(hover: none) and (pointer: coarse)"
+                  />
+                  <img
+                    :src="featuredProject.image"
+                    :alt="featuredProject.title"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
                 <span>{{ featuredProject.period }}</span>
               </div>
               <div class="project-body">
@@ -218,7 +242,19 @@
                 @click="openProject(project)"
               >
                 <div class="project-image">
-                  <img :src="project.image" :alt="project.title" />
+                  <picture>
+                    <source
+                      :srcset="mobileProjectImage(project.image)"
+                      type="image/webp"
+                      media="(hover: none) and (pointer: coarse)"
+                    />
+                    <img
+                      :src="project.image"
+                      :alt="project.title"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </picture>
                   <span>{{ project.period }}</span>
                 </div>
                 <div class="project-body">
@@ -693,6 +729,9 @@ const projects = [
 
 const featuredProject = computed(() => projects[0])
 const sideProjects = computed(() => projects.slice(1))
+const mobileProjectImage = (image) => image
+  .replace('/projects/', '/mobile/')
+  .replace(/\.[^.]+$/, '.webp')
 const selectedProject = ref(projects[0])
 const detailActive = ref(false)
 const detailTransition = ref(false)
