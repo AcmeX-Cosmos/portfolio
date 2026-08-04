@@ -235,6 +235,7 @@ figure {
   object-fit: cover;
   filter: saturate(1.05) contrast(1.1) brightness(0.66) hue-rotate(36deg);
   opacity: 1;
+  pointer-events: none;
 }
 
 .hero::before {
@@ -242,6 +243,7 @@ figure {
   inset: 0;
   z-index: 2;
   content: "";
+  pointer-events: none;
   background:
     linear-gradient(180deg, rgba(2, 4, 3, 0.18) 0%, rgba(2, 4, 3, 0.06) 33%, transparent 66%),
     linear-gradient(90deg, rgba(2, 4, 3, 0.66), rgba(2, 4, 3, 0.16) 48%, rgba(2, 4, 3, 0.66)),
@@ -253,6 +255,7 @@ figure {
   inset: 12% 0 0;
   z-index: 3;
   content: "";
+  pointer-events: none;
   background:
     radial-gradient(circle at 66% 38%, rgba(216, 255, 63, 0.18), transparent 28rem),
     radial-gradient(circle at 77% 65%, rgba(103, 217, 255, 0.16), transparent 24rem);
@@ -260,6 +263,8 @@ figure {
 }
 
 .hero-stage {
+  position: relative;
+  z-index: 4;
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(460px, 0.75fr);
   gap: 64px;
@@ -459,6 +464,8 @@ figure {
 .orbit-card {
   position: absolute;
   z-index: 3;
+  overflow: hidden;
+  pointer-events: auto;
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
   gap: 12px;
@@ -480,6 +487,53 @@ figure {
     inset 0 1px 0 color-mix(in srgb, var(--accent), transparent 78%),
     0 18px 46px rgba(0, 0, 0, 0.2),
     0 0 24px color-mix(in srgb, var(--accent), transparent 94%);
+}
+
+.orbit-card::after {
+  position: absolute;
+  inset: -30% auto -30% -58%;
+  z-index: 0;
+  width: 34%;
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent), white 26%), transparent);
+  opacity: 0;
+  transform: skewX(-18deg);
+  transition:
+    left 520ms var(--ease),
+    opacity 220ms var(--ease);
+}
+
+.orbit-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.orbit-card:hover {
+  z-index: 8;
+  border-color: color-mix(in srgb, var(--accent), white 24%);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, var(--accent), white 6%),
+    0 26px 62px rgba(0, 0, 0, 0.34),
+    0 0 42px color-mix(in srgb, var(--accent), transparent 78%);
+  filter: saturate(1.14) brightness(1.06);
+  transform: translateY(-12px) scale(1.04);
+}
+
+.orbit-card strong {
+  transition:
+    color 260ms var(--ease),
+    transform 260ms var(--ease);
+}
+
+.orbit-card:hover strong {
+  color: color-mix(in srgb, var(--accent), white 20%);
+  transform: translateX(4px);
+}
+
+.orbit-card:hover::after {
+  left: 126%;
+  opacity: 0.28;
 }
 
 .orbit-card:nth-of-type(1),
@@ -531,6 +585,16 @@ figure {
   color: var(--accent);
   font-size: 11px;
   font-weight: 900;
+  transition:
+    background 260ms var(--ease),
+    box-shadow 260ms var(--ease),
+    transform 260ms var(--ease);
+}
+
+.orbit-card:hover .orbit-index {
+  background: color-mix(in srgb, var(--accent), transparent 82%);
+  box-shadow: 0 0 18px color-mix(in srgb, var(--accent), transparent 68%);
+  transform: rotate(8deg) scale(1.1);
 }
 
 .orbit-card strong {
@@ -588,6 +652,12 @@ figure {
     radial-gradient(circle at 24% 18%, rgba(255, 122, 144, 0.1), transparent 30rem),
     radial-gradient(circle at 78% 55%, rgba(130, 255, 210, 0.09), transparent 38rem),
     linear-gradient(180deg, rgba(3, 5, 7, 0.92), rgba(4, 11, 9, 0.96));
+}
+
+.profile-section {
+  display: grid;
+  min-height: 100svh;
+  align-items: center;
 }
 
 .strengths-section {
@@ -1376,7 +1446,7 @@ figure {
   grid-template-rows: auto 1fr auto;
   grid-column: span 2;
   min-height: min(32svh, 270px);
-  padding: 22px;
+  padding: 24px;
   border-radius: 18px;
 }
 
@@ -1695,6 +1765,7 @@ figure {
 }
 
 .contact-section {
+  position: relative;
   display: grid;
   align-items: center;
   min-height: 100svh;
@@ -1829,9 +1900,14 @@ figure {
 }
 
 .contact-footer {
-  width: min(100%, 1280px);
-  padding-top: 28px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: min(calc(100% - 64px), 1280px);
+  padding: 28px 0 18px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+  transform: translateX(-50%);
 }
 
 .contact-footer p {
@@ -2842,49 +2918,80 @@ figure {
 }
 
 @media (min-width: 1181px) {
+  .strength-showcase {
+    transform: translateY(-25px);
+  }
+
   .strength-grid {
     position: relative;
     display: block;
-    width: min(100%, 1160px);
+    width: min(100%, 1240px);
     height: 705px;
   }
 
   .strength-card:nth-of-type(n) {
     position: absolute;
     z-index: 1;
-    width: 360px;
-    min-height: 270px;
+    width: clamp(370px, 27vw, 390px);
+    min-height: 285px;
     margin: 0;
   }
 
+  .strength-card .strength-index {
+    width: 46px;
+    height: 46px;
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
+
+  .strength-card .strength-metric {
+    font-size: 12px;
+  }
+
+  .strength-card h3 {
+    font-size: clamp(23px, 1.55vw, 28px);
+  }
+
+  .strength-card p {
+    font-size: 15px;
+  }
+
+  .strength-card .mini-tags span {
+    font-size: 13px;
+  }
+
   .strength-card:nth-of-type(1) {
-    top: 0;
+    top: -55px;
     left: 50%;
     transform: translateX(-50%) rotate(-1deg);
   }
 
   .strength-card:nth-of-type(2) {
-    top: 85px;
-    right: 0;
-    transform: rotate(1.2deg);
+    top: 65px;
+    right: auto;
+    left: 0;
+    transform: rotate(-1.2deg);
   }
 
   .strength-card:nth-of-type(3) {
-    right: 170px;
-    bottom: 0;
-    transform: rotate(-0.8deg);
+    top: 65px;
+    right: 0;
+    bottom: auto;
+    transform: rotate(1.2deg);
   }
 
   .strength-card:nth-of-type(4) {
-    bottom: 0;
-    left: 170px;
+    bottom: -15px;
+    left: 155px;
     transform: rotate(1deg);
   }
 
   .strength-card:nth-of-type(5) {
-    top: 85px;
-    left: 0;
-    transform: rotate(-1.2deg);
+    top: auto;
+    right: 155px;
+    bottom: -15px;
+    left: auto;
+    transform: rotate(-0.8deg);
   }
 
   .strength-card:nth-of-type(n):hover {

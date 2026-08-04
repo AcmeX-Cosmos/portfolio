@@ -409,11 +409,10 @@
           发送邮件
           <span aria-hidden="true">→</span>
         </a>
-
-        <footer class="contact-footer">
-          <p>© 2026 陈泽欣. All rights reserved.</p>
-        </footer>
       </div>
+      <footer class="contact-footer">
+        <p>© 2026 陈泽欣. All rights reserved.</p>
+      </footer>
     </section>
   </main>
 </template>
