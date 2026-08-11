@@ -6,13 +6,13 @@
 <p align="center">
   <img src="https://img.shields.io/badge/framework-Vue%203-42b883.svg" alt="Vue 3">
   <img src="https://img.shields.io/badge/build-Vite-BD34FE.svg" alt="Vite">
-  <img src="https://img.shields.io/badge/license-MIT-00e676.svg" alt="License">
+  <img src="https://img.shields.io/badge/license-MIT-007EC6.svg" alt="License">
   <img src="https://img.shields.io/badge/platform-Web-FF6D00.svg" alt="Platform">
 </p>
 
-<p align="center">
+<p align="center" style="border-radius: 9px;font-size: 20px;">
   <a href="https://acmex-cosmos.github.io/portfolio/">
-    <img src="https://img.shields.io/badge/Portfolio-acmex--cosmos.github.io/portfolio-0e75b6.svg?style=for-the-badge" alt="Portfolio">
+    <img src="https://img.shields.io/badge/Portfolio-acmex--cosmos.github.io/portfolio-0e75b6.svg?style=for-the-badge" style="border-radius: 9px;font-size: 20px;" alt="Portfolio">
   </a>
 </p>
 
@@ -56,11 +56,11 @@ npm run preview      # Preview production build
 
 | Platform | Details |
 |----------|---------|
+| <img src="https://img.shields.io/badge/Portfolio-AcmeX-0e75b6.svg" alt="Portfolio"> | [acmex-cosmos.github.io/portfolio](https://acmex-cosmos.github.io/portfolio/) |
 | <img src="https://img.shields.io/badge/GitHub-AcmeX-181717.svg?logo=github" alt="GitHub"> | [github.com/AcmeX](https://github.com/AcmeX) |
 | <img src="https://img.shields.io/badge/Email-AcmeX%40foxmail.com-EA4335.svg?logo=gmail" alt="Email"> | [AcmeX@foxmail.com](mailto:AcmeX@foxmail.com) |
-| <img src="https://img.shields.io/badge/WeChat-QR_Code-07C160.svg?logo=wechat" alt="WeChat"> | <img src="public/projects/WeChat-QR.jpg" width="120" alt="WeChat QR"> |
+| <img src="https://img.shields.io/badge/WeChat-QR_Code-07C160.svg?logo=wechat" alt="WeChat"> | <div align="center"><img src="public/projects/WeChat-QR.jpg" width="120" alt="WeChat QR"></div> |
 
-> Additional social links (Personal Website, LinkedIn, Twitter/X, Bilibili, Zhihu, etc.) can be added here.
 
 ## License
 
