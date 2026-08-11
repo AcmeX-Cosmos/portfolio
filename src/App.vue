@@ -1,3 +1,6 @@
+<!-- Copyright (c) 2026 AcmeX. All rights reserved.
+     Licensed under the MIT License. See LICENSE file in the project root. -->
+
 <template>
   <main class="site-shell">
     <!-- <header class="nav-shell">
@@ -161,26 +164,32 @@
       </div>
     </section>
 
-    <section id="timeline" class="timeline-section section-block">
+    <section id="strengths" class="strengths-section section-block">
       <div class="page-frame">
         <div class="section-heading">
-          <p class="eyebrow">EXPERIENCE TIMELINE</p>
-          <h2>经历时间轴</h2>
+          <p class="eyebrow">CAPABILITY MATRIX</p>
+          <h2>个人优势</h2>
         </div>
 
-        <div class="timeline-track" aria-label="个人经历时间轴">
-          <article
-            v-for="event in timeline"
-            :key="event.title"
-            class="timeline-card hover-react"
-            :class="event.align"
-          >
-            <span class="timeline-dot" aria-hidden="true"></span>
-            <p>{{ event.period }}</p>
-            <h3>{{ event.title }}</h3>
-            <strong>{{ event.role }}</strong>
-            <span>{{ event.desc }}</span>
-          </article>
+        <div class="strength-showcase">
+          <div class="strength-grid">
+            <article
+              v-for="strength in strengths"
+              :key="strength.title"
+              class="strength-card hover-react"
+              :style="strength.style"
+            >
+              <div class="strength-index">{{ strength.code }}</div>
+              <div>
+                <span class="strength-metric">{{ strength.metric }}</span>
+                <h3>{{ strength.title }}</h3>
+                <p>{{ strength.desc }}</p>
+              </div>
+              <div class="mini-tags">
+                <span v-for="tag in strength.tags" :key="tag">{{ tag }}</span>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -340,32 +349,26 @@
       </template>
     </Teleport>
 
-    <section id="strengths" class="strengths-section section-block">
+    <section id="timeline" class="timeline-section section-block">
       <div class="page-frame">
         <div class="section-heading">
-          <p class="eyebrow">CAPABILITY MATRIX</p>
-          <h2>个人优势</h2>
+          <p class="eyebrow">EXPERIENCE TIMELINE</p>
+          <h2>经历时间轴</h2>
         </div>
 
-        <div class="strength-showcase">
-          <div class="strength-grid">
-            <article
-              v-for="strength in strengths"
-              :key="strength.title"
-              class="strength-card hover-react"
-              :style="strength.style"
-            >
-              <div class="strength-index">{{ strength.code }}</div>
-              <div>
-                <span class="strength-metric">{{ strength.metric }}</span>
-                <h3>{{ strength.title }}</h3>
-                <p>{{ strength.desc }}</p>
-              </div>
-              <div class="mini-tags">
-                <span v-for="tag in strength.tags" :key="tag">{{ tag }}</span>
-              </div>
-            </article>
-          </div>
+        <div class="timeline-track" aria-label="个人经历时间轴">
+          <article
+            v-for="event in timeline"
+            :key="event.title"
+            class="timeline-card hover-react"
+            :class="event.align"
+          >
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <p>{{ event.period }}</p>
+            <h3>{{ event.title }}</h3>
+            <strong>{{ event.role }}</strong>
+            <span>{{ event.desc }}</span>
+          </article>
         </div>
       </div>
     </section>
@@ -426,9 +429,9 @@ const assetPath = (path) => `${BASE}${path.replace(/^\//, '')}`
 
 const navItems = [
   { label: '首页', href: '#home' },
-  { label: '经历', href: '#timeline' },
-  { label: '项目', href: '#projects' },
   { label: '优势', href: '#strengths' },
+  { label: '项目', href: '#projects' },
+  { label: '经历', href: '#timeline' },
 ]
 
 const heroStrengths = [

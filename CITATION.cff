@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: portfolio
+authors:
+  - family-names: AcmeX
+version: 0.1.0
+date-released: 2026-08-11
+license: MIT
+repository-code: "https://github.com/AcmeX/portfolio"

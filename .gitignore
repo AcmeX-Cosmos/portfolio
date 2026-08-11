@@ -39,3 +39,13 @@ QuickStart.md
 
 # Coverage
 coverage/
+
+# Lint cache
+.eslintcache
+.stylelintcache
+
+# TypeScript
+*.tsbuildinfo
+
+# Cache
+.cache/

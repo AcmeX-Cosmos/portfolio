@@ -1,3 +1,6 @@
+<!-- Copyright (c) 2026 AcmeX. All rights reserved.
+     Licensed under the MIT License. See LICENSE file in the project root. -->
+
 <template>
   <nav class="navbar" :class="{ scrolled: isScrolled }">
     <div class="container nav-inner">
@@ -9,9 +12,9 @@
       <div class="nav-links">
         <a href="#home" class="nav-link">首页</a>
         <a href="#profile" class="nav-link">简介</a>
-        <a href="#timeline" class="nav-link">经历</a>
-        <a href="#projects" class="nav-link">项目</a>
         <a href="#strengths" class="nav-link">优势</a>
+        <a href="#projects" class="nav-link">项目</a>
+        <a href="#timeline" class="nav-link">经历</a>
         <!-- <a href="#contact" class="nav-link">联系</a> -->
       </div>
       <a href="#contact" class="nav-cta">联系我</a>
