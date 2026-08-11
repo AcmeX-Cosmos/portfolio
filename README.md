@@ -1,6 +1,6 @@
 <p align="center">
   <h1 align="center">AcmeX Portfolio</h1>
-  <p align="center">Robot Vision & ROS2 System Development</p>
+  <p align="center">Robot Vision &amp; ROS2 System Development</p>
 </p>
 
 <p align="center">
@@ -8,65 +8,62 @@
   <img src="https://img.shields.io/badge/build-Vite-646CFF.svg" alt="Vite">
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
   <img src="https://img.shields.io/badge/platform-Web-lightgrey.svg" alt="Platform">
+  <a href="https://acmex-cosmos.github.io/portfolio/">
+    <img src="https://img.shields.io/badge/live-demo-blue.svg" alt="Live Demo">
+  </a>
 </p>
 
-<p align="center">
-  <a href="https://acmex-cosmos.github.io/portfolio/">acmex-cosmos.github.io/portfolio</a>
-</p>
+---
 
 ## About
 
-AcmeX's personal portfolio website, showcasing projects, technical skills, and career experience in the field of robot vision perception and ROS2 system architecture development. Built with Vue 3 + Vite, featuring responsive layout and dark theme.
+A personal portfolio website showcasing projects, technical expertise, and career experience in **robot vision perception** and **ROS2 system architecture**. Built with Vue 3 + Vite, featuring a responsive dark-themed design.
 
 ## Features
 
-- **Project Showcase**: Categorized display of projects in robot vision, ROS2 systems, simulation, and more
-- **Career Timeline**: Chronological presentation of education and professional experience
-- **Skills Radar**: Visual representation of technical stack and competency dimensions
-- **Responsive Design**: Optimized for both desktop and mobile browsing
-- **Dark Theme**: Sci-tech dark aesthetic with strong visual impact
+| Category | Description |
+|----------|-------------|
+| Project Showcase | Categorized display of projects in robot vision, ROS2, simulation, and more |
+| Career Timeline | Chronological presentation of education and professional experience |
+| Skills Radar | Visual representation of technical stack and competency dimensions |
+| Responsive Design | Optimized for both desktop and mobile browsing |
+| Dark Theme | Sci-tech dark aesthetic with strong visual impact |
 
 ## Quick Start
 
 ```bash
-# Clone the repository
 git clone https://github.com/AcmeX/portfolio.git
 cd portfolio
-
-# Install dependencies
 npm install
-
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run preview      # Preview production build
 ```
 
 ## Tech Stack
 
-- **Framework**: Vue 3 (Composition API)
-- **Build Tool**: Vite
-- **Styling**: Vanilla CSS (CSS Custom Properties / Dark Theme)
-- **Deployment**: GitHub Pages
+| Layer | Technology |
+|-------|------------|
+| Framework | Vue 3 (Composition API) |
+| Build Tool | Vite |
+| Styling | Vanilla CSS (Custom Properties) |
+| Deployment | GitHub Pages |
 
 ## Links
 
-| Platform | Link |
-|----------|------|
-| GitHub | [github.com/AcmeX](https://github.com/AcmeX) |
-| Email | [AcmeX@foxmail.com](mailto:AcmeX@foxmail.com) |
-| WeChat | <img src="WeChat-QR.jpg" width="120" alt="WeChat QR"> |
+| Platform | Details |
+|----------|---------|
+| <img src="https://img.shields.io/badge/GitHub-AcmeX-181717.svg?logo=github" alt="GitHub"> | [github.com/AcmeX](https://github.com/AcmeX) |
+| <img src="https://img.shields.io/badge/Email-AcmeX%40foxmail.com-EA4335.svg?logo=gmail" alt="Email"> | [AcmeX@foxmail.com](mailto:AcmeX@foxmail.com) |
+| WeChat | <img src="public/projects/WeChat-QR.jpg" width="120" alt="WeChat QR"> |
 
-> To add more social links (Personal Website, LinkedIn, Twitter/X, Bilibili, Zhihu, etc.), please add them here.
 
 ## License
 
-Copyright (c) 2026 AcmeX. All rights reserved.
+Copyright &copy; 2026 **AcmeX**. Released under the [MIT License](LICENSE).
 
-This project is open-sourced under the [MIT License](LICENSE).
+---
 
-> 中文文档请参阅 [README_zh.md](README_zh.md)
+<p align="center">
+  <sub>中文文档请参阅 <a href="README_zh.md">README_zh.md</a></sub>
+</p>
