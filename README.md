@@ -8,8 +8,11 @@
   <img src="https://img.shields.io/badge/build-Vite-646CFF.svg" alt="Vite">
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
   <img src="https://img.shields.io/badge/platform-Web-lightgrey.svg" alt="Platform">
+</p>
+
+<p align="center">
   <a href="https://acmex-cosmos.github.io/portfolio/">
-    <img src="https://img.shields.io/badge/live-demo-blue.svg" alt="Live Demo">
+    <img src="https://img.shields.io/badge/Portfolio-acmex--cosmos.github.io/portfolio-0e75b6.svg" alt="Portfolio">
   </a>
 </p>
 
@@ -55,8 +58,9 @@ npm run preview      # Preview production build
 |----------|---------|
 | <img src="https://img.shields.io/badge/GitHub-AcmeX-181717.svg?logo=github" alt="GitHub"> | [github.com/AcmeX](https://github.com/AcmeX) |
 | <img src="https://img.shields.io/badge/Email-AcmeX%40foxmail.com-EA4335.svg?logo=gmail" alt="Email"> | [AcmeX@foxmail.com](mailto:AcmeX@foxmail.com) |
-| WeChat | <img src="public/projects/WeChat-QR.jpg" width="120" alt="WeChat QR"> |
+| <img src="https://img.shields.io/badge/WeChat-QR_Code-07C160.svg?logo=wechat" alt="WeChat"> | [View QR](public/projects/WeChat-QR.jpg) |
 
+> Additional social links (Personal Website, LinkedIn, Twitter/X, Bilibili, Zhihu, etc.) can be added here.
 
 ## License
 

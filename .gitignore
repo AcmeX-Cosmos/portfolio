@@ -61,3 +61,6 @@ coverage/
 *.mov
 *.webm
 *.avi
+
+# Exceptions
+!public/projects/WeChat-QR.jpg
