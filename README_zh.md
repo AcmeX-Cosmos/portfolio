@@ -10,6 +10,10 @@
   <img src="https://img.shields.io/badge/platform-Web-lightgrey.svg" alt="Platform">
 </p>
 
+<p align="center">
+  <a href="https://acmex-cosmos.github.io/portfolio/">acmex-cosmos.github.io/portfolio</a>
+</p>
+
 ## 项目简介
 
 AcmeX 个人作品集网站，展示机器人视觉感知与 ROS2 系统架构开发领域的项目成果、技术能力与职业经历。网站采用 Vue 3 + Vite 构建，支持响应式布局与暗色主题。
@@ -55,7 +59,7 @@ npm run preview
 |------|------|
 | GitHub | [github.com/AcmeX](https://github.com/AcmeX) |
 | 邮箱 | [AcmeX@foxmail.com](mailto:AcmeX@foxmail.com) |
-| 微信 | 扫描下方二维码添加 |
+| 微信 | <img src="WeChat-QR.jpg" width="120" alt="微信二维码"> |
 
 > 如需添加更多社交链接（个人网站、LinkedIn、Twitter/X、B站、知乎等），请在此处补充。
 
@@ -64,9 +68,5 @@ npm run preview
 Copyright (c) 2026 AcmeX. All rights reserved.
 
 本项目基于 [MIT License](LICENSE) 开源。
-
-## 贡献指南
-
-欢迎提交 Issue 和 Pull Request。详见 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
 > For English documentation, please refer to [README.md](README.md)

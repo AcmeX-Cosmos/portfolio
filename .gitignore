@@ -49,3 +49,15 @@ coverage/
 
 # Cache
 .cache/
+
+# Images & Videos
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.svg
+*.webp
+*.mp4
+*.mov
+*.webm
+*.avi

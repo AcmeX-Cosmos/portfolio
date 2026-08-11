@@ -10,6 +10,10 @@
   <img src="https://img.shields.io/badge/platform-Web-lightgrey.svg" alt="Platform">
 </p>
 
+<p align="center">
+  <a href="https://acmex-cosmos.github.io/portfolio/">acmex-cosmos.github.io/portfolio</a>
+</p>
+
 ## About
 
 AcmeX's personal portfolio website, showcasing projects, technical skills, and career experience in the field of robot vision perception and ROS2 system architecture development. Built with Vue 3 + Vite, featuring responsive layout and dark theme.
@@ -55,7 +59,7 @@ npm run preview
 |----------|------|
 | GitHub | [github.com/AcmeX](https://github.com/AcmeX) |
 | Email | [AcmeX@foxmail.com](mailto:AcmeX@foxmail.com) |
-| WeChat | Scan the QR code below to connect |
+| WeChat | <img src="WeChat-QR.jpg" width="120" alt="WeChat QR"> |
 
 > To add more social links (Personal Website, LinkedIn, Twitter/X, Bilibili, Zhihu, etc.), please add them here.
 
@@ -64,9 +68,5 @@ npm run preview
 Copyright (c) 2026 AcmeX. All rights reserved.
 
 This project is open-sourced under the [MIT License](LICENSE).
-
-## Contributing
-
-Issues and Pull Requests are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 > 中文文档请参阅 [README_zh.md](README_zh.md)
