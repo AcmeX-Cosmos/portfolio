@@ -1,6 +1,14 @@
-# portfolio
+<p align="center">
+  <h1 align="center">AcmeX Portfolio</h1>
+  <p align="center">机器人视觉与 ROS2 系统开发</p>
+</p>
 
-> AcmeX 个人作品集 — 机器人视觉算法与 ROS2 系统开发
+<p align="center">
+  <img src="https://img.shields.io/badge/framework-Vue%203-4FC08D.svg" alt="Vue 3">
+  <img src="https://img.shields.io/badge/build-Vite-646CFF.svg" alt="Vite">
+  <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
+  <img src="https://img.shields.io/badge/platform-Web-lightgrey.svg" alt="Platform">
+</p>
 
 ## 项目简介
 
