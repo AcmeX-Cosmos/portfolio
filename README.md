@@ -56,10 +56,10 @@ npm run preview      # Preview production build
 
 | Platform | Details |
 |----------|---------|
-| <img src="https://img.shields.io/badge/Portfolio-AcmeX-0e75b6.svg" alt="Portfolio"> | [acmex-cosmos.github.io/portfolio](https://acmex-cosmos.github.io/portfolio/) |
-| <img src="https://img.shields.io/badge/GitHub-AcmeX-181717.svg?logo=github" alt="GitHub"> | [github.com/AcmeX](https://github.com/AcmeX) |
-| <img src="https://img.shields.io/badge/Email-AcmeX%40foxmail.com-EA4335.svg?logo=gmail" alt="Email"> | [AcmeX@foxmail.com](mailto:AcmeX@foxmail.com) |
-| <img src="https://img.shields.io/badge/WeChat-QR_Code-07C160.svg?logo=wechat" alt="WeChat"> | <div align="center"><img src="public/projects/WeChat-QR.jpg" width="120" alt="WeChat QR"></div> |
+| <div align="center"><img src="https://img.shields.io/badge/Portfolio-AcmeX-0e75b6.svg" alt="Portfolio"></div> | <div align="center">[acmex-cosmos.github.io/portfolio](https://acmex-cosmos.github.io/portfolio/)</div> |
+| <div align="center"><img src="https://img.shields.io/badge/GitHub-AcmeX-181717.svg?logo=github" alt="GitHub"></div> | <div align="center">[github.com/AcmeX](https://github.com/AcmeX)</div> |
+| <div align="center"><img src="https://img.shields.io/badge/Email-foxmail-EA4335.svg?logo=gmail" alt="Email"></div> | <div align="center">[AcmeX@foxmail.com](mailto:AcmeX@foxmail.com)</div> |
+| <div align="center"><img src="https://img.shields.io/badge/WeChat-QR_Code-07C160.svg?logo=wechat" alt="WeChat"></div> | <div align="center"><img src="public/projects/WeChat-QR.jpg" width="120" alt="WeChat QR"></div> |
 
 
 ## License
