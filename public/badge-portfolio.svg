@@ -1,4 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="280" height="40">
-  <rect width="280" height="40" rx="12" fill="#0e75b6"/>
-  <text x="140" y="25" font-family="Arial, sans-serif" font-size="14" fill="#fff" text-anchor="middle" font-weight="bold">Portfolio → acmex-cosmos.github.io/portfolio</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="387.25" height="28" role="img" aria-label="PORTFOLIO: ACMEX-COSMOS.GITHUB.IO/PORTFOLIO">
+  <defs>
+    <clipPath id="round">
+      <rect width="387.25" height="28" rx="6"/>
+    </clipPath>
+  </defs>
+  <title>PORTFOLIO: ACMEX-COSMOS.GITHUB.IO/PORTFOLIO</title>
+  <g shape-rendering="crispEdges" clip-path="url(#round)">
+    <rect width="93.25" height="28" fill="#555"/>
+    <rect x="93.25" width="294" height="28" fill="#0e75b6"/>
+  </g>
+  <g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="100">
+    <text transform="scale(.1)" x="466.25" y="175" textLength="692.5">PORTFOLIO</text>
+    <text transform="scale(.1)" x="2402.5" y="175" textLength="2700" font-weight="bold">ACMEX-COSMOS.GITHUB.IO/PORTFOLIO</text>
+  </g>
 </svg>
