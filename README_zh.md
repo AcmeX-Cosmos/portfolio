@@ -4,15 +4,15 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/framework-Vue%203-4FC08D.svg" alt="Vue 3">
-  <img src="https://img.shields.io/badge/build-Vite-646CFF.svg" alt="Vite">
-  <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
-  <img src="https://img.shields.io/badge/platform-Web-lightgrey.svg" alt="Platform">
+  <img src="https://img.shields.io/badge/framework-Vue%203-42b883.svg" alt="Vue 3">
+  <img src="https://img.shields.io/badge/build-Vite-BD34FE.svg" alt="Vite">
+  <img src="https://img.shields.io/badge/license-MIT-00e676.svg" alt="License">
+  <img src="https://img.shields.io/badge/platform-Web-FF6D00.svg" alt="Platform">
 </p>
 
 <p align="center">
   <a href="https://acmex-cosmos.github.io/portfolio/">
-    <img src="https://img.shields.io/badge/Portfolio-acmex--cosmos.github.io/portfolio-0e75b6.svg" alt="作品集">
+    <img src="https://img.shields.io/badge/Portfolio-acmex--cosmos.github.io/portfolio-0e75b6.svg?style=for-the-badge" alt="作品集">
   </a>
 </p>
 
@@ -58,7 +58,7 @@ npm run preview      # 预览生产构建
 |------|------|
 | <img src="https://img.shields.io/badge/GitHub-AcmeX-181717.svg?logo=github" alt="GitHub"> | [github.com/AcmeX](https://github.com/AcmeX) |
 | <img src="https://img.shields.io/badge/Email-AcmeX%40foxmail.com-EA4335.svg?logo=gmail" alt="邮箱"> | [AcmeX@foxmail.com](mailto:AcmeX@foxmail.com) |
-| <img src="https://img.shields.io/badge/WeChat-QR_Code-07C160.svg?logo=wechat" alt="微信"> | [查看二维码](public/projects/WeChat-QR.jpg) |
+| <img src="https://img.shields.io/badge/WeChat-QR_Code-07C160.svg?logo=wechat" alt="微信"> | <img src="public/projects/WeChat-QR.jpg" width="120" alt="微信二维码"> |
 
 > 如需添加更多社交链接（个人网站、LinkedIn、Twitter/X、B站、知乎等），请在此处补充。
 
